@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class MiddleCategoriesTableSeeder extends Seeder
 {
@@ -13,7 +14,7 @@ class MiddleCategoriesTableSeeder extends Seeder
     public function run()
     {
         //
-        DB::table('middle_categories')->insert([
+        $middleCategoriesOfFirstBigCategory = [
             [
                 'big_category_id' => 1,
                 'name' => '社内',
@@ -163,7 +164,20 @@ class MiddleCategoriesTableSeeder extends Seeder
                 'name' => '小浜',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 1,
+                'name' => '小浜',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 1,
+                'name' => '板真空',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
             ]
-        ]);
+        ];
+        DB::table('middle_categories')->insert($middleCategoriesOfFirstBigCategory);
     }
 }
