@@ -69285,8 +69285,8 @@ var rootReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])(
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/youn/Documents/Project/Web/yamaka_inventory_management/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/youn/Documents/Project/Web/yamaka_inventory_management/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/naru/Documents/Web/yamaka-inventory-management/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/naru/Documents/Web/yamaka-inventory-management/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

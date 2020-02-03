@@ -24,7 +24,13 @@ class StockController extends Controller
     public function navi() {
 
       $bigcategories = BigCategory::all();
-      
-      return $bigcategories->toJson();
+      foreach ($bigcategories as $bigCategory) {
+          echo 'middlecategory';
+          foreach ($bigCategory->middleCategories as $middleCategory) {
+            echo($middleCategory->items);
+          }
+          
+      }
+    //   return $bigcategories->toJson();
     }
 }
