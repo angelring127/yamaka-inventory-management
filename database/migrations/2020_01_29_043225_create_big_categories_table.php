@@ -19,7 +19,7 @@ class CreateBigCategoriesTable extends Migration
             $table->string('name', 100)->comment('場所タイプ名');
             $table->string('manager', 100)->comment('担当者');
             $table->timestamps();
-            $table->integer('deleted')->default(0)->comment('削除状態');
+            $table->softDeletes()->comment('削除状態');
         });
 
         DB::statement("ALTER TABLE big_categories comment '場所のタイプ'");

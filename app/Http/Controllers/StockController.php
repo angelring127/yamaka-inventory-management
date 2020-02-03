@@ -18,7 +18,13 @@ class StockController extends Controller
         if (!$bigcategories) {
             abort(404);
         }
-        dd($bigcategories);
         return view('stock.index');
+    }
+
+    public function navi() {
+
+      $bigcategories = BigCategory::all();
+      
+      return $bigcategories->toJson();
     }
 }
