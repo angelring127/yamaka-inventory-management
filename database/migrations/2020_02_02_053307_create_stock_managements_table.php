@@ -19,7 +19,9 @@ class CreateStockManagementsTable extends Migration
             $table->unsignedBigInteger('big_category_id')->comment('場所タイプID');
             $table->unsignedBigInteger('middle_category_id')->comment('納品場所ID');
             $table->unsignedBigInteger('item_id')->comment('商品ID');
+            // $table->unsignedBigInteger('stock_number')->comment('在庫登録番号');
             $table->integer('stock_status')->comment('出荷:1 製造:2');
+            $table->unsignedBigInteger('stock_count')->comment('商品数');
             $table->timestamps();
             $table->softDeletes()->comment('削除状態');
 

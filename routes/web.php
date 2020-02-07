@@ -12,3 +12,5 @@
 */
 Route::view('/', 'app');
 Route::get('/navi', 'StockController@navi');
+Route::get('/stock/{id}', 'StockController@selectNavi');
+Route::post('/stock', 'StockController@insertStockList');
