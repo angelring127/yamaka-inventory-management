@@ -20,7 +20,7 @@ class CreateItemsTable extends Migration
             $table->unsignedBigInteger('middle_category_id')->comment('納品場所ID');
             $table->string('name')->comment('商品名');
             $table->timestamps();
-            $table->integer('deleted')->default(0)->comment('削除状態');
+            $table->softDeletes()->comment('削除状態');
 
             // set foreign
             $table->foreign('big_category_id')->references('id')->on('big_categories');

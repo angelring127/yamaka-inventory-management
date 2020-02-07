@@ -1,19 +1,25 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
 import rootReducer from './modules'
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { Provider } from 'react-redux';
-import CounterContainer from './containers/CounterContainer';
+import thunk from 'redux-thunk';
+import StockTableContainer from './containers/StockTableContainer';
+import NaviBarContainer from './containers/NaviBarContainer';
 
 
 // Chrome で　開発ツールを利用できるようにする。
-const store = createStore(rootReducer, composeWithDevTools());
+const middlewares = [thunk];
+const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(...middlewares),));
+
+
 
 if (document.getElementById('index')) {
     ReactDOM.render(
     <Provider store={store}>
-      <CounterContainer />
+      <NaviBarContainer />
+      <StockTableContainer />
     </Provider>
     , document.getElementById('index'));
 }

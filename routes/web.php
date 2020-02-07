@@ -10,4 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', 'StockController@index');
+Route::view('/', 'app');
+Route::get('/navi', 'StockController@navi');
+Route::get('/stock/{id}', 'StockController@selectNavi');
+Route::post('/stock', 'StockController@insertStockList');
