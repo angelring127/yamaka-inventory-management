@@ -18,6 +18,8 @@ const StockTableContainer = () => {
 
   // 方品入力登録
   const insertStockData = (insertStockDataList) => {dispatch(storeStockTable.insertStockData(insertStockDataList))};
+  // カレンダーに在庫の現像を表示するため選択された在庫ストアに保管
+  const selectStockList = (selectStockList) => {dispatch(storeStockTable.selectStockList(selectStockList))};
 
   //在庫入力をリストに追加 
   const insertData = e => {
@@ -64,7 +66,7 @@ const StockTableContainer = () => {
   };
 
   return (
-    <StockTable stockTableInfo={stockTable} insertData={insertData}/>
+    <StockTable stockTableInfo={stockTable} insertData={insertData} selectStockList={selectStockList} />
   );
 }
 

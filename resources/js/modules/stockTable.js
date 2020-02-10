@@ -4,11 +4,15 @@ const FETCH_STOCK_TABLE_PENDING = 'stockTable/FETCH_PENDING';
 const SELECT_STOCK_TABLE = 'stockTable/SELECT_STOCK_TABLE';
 const FETCH_ERROR_MESSAGE = 'stockTable/FETCH_ERROR_MESSAGE';
 const INSERT_STOCK_DATA = 'stockTable/INSERT_STOCK_DATA';
+const SELECT_STOCK_LIST = 'stockTable/SELECT_STOCK_LIST';
+
 
 export const fetchSuccess = (stockItems) => ({ type: FETCH_STOCK_TABLE_SUCESS, payload: {stockItems}});
 export const onPending = () => ({ type: FETCH_STOCK_TABLE_PENDING});
 export const fetchError = (error) => ({ type: FETCH_ERROR_MESSAGE, payload: {error}});
 export const insertStockData = (stockDataList) => ({ type: INSERT_STOCK_DATA, payload: {stockDataList}});
+export const selectStockList = (stockDataList) => ({ type: SELECT_STOCK_LIST, payload: {stockDataList}});
+
 
   // 액션 생성
 const initialState = {
@@ -16,7 +20,8 @@ const initialState = {
   stockItems : [],
   currentNavi : null,
   error: null,
-  insertStockDataList: []
+  insertStockDataList: [],
+  selectedStockList: [],
 };
 
 const stockTable = (state = initialState, action ) => {
@@ -48,6 +53,11 @@ const stockTable = (state = initialState, action ) => {
       return {
         ...state,
         insertStockDataList : action.payload.stockDataList
+      }
+    case SELECT_STOCK_LIST:
+      return {
+        ...state,
+        selectedStockList : action.payload.stockDataList
       }
     default:
       return state;

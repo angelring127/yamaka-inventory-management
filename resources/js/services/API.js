@@ -26,8 +26,6 @@ export const selectNavi = (id) => {
 
 // 在庫入力登録
 export const insertStockDataList = (data) => {
-  console.log(data);
-  const param = { stockList : data };
   const jsonParam = JSON.stringify(data);
   return axiosApi.post(stock, jsonParam);
 }
