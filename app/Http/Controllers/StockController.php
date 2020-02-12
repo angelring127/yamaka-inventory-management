@@ -72,7 +72,6 @@ class StockController extends Controller
     public function insertStockList(Request $request) {
       if ($request->ajax() && $request->post()) {
         $stockDataList = $request->all();
-        Log::info('recordId : 1');
         foreach($stockDataList as $stockData) {
           $validator = Validator::make($stockData, array(
               'item_id' => 'required',
@@ -89,18 +88,14 @@ class StockController extends Controller
             ], 422);
           }
         }
-        Log::info('recordId : 2');
         // 入力項目にエラーがない場合Recordを生成
         $record = Record::create();
         $recordId = $record->id;
-
-        Log::info('recordId : '. $recordId);
 
         foreach($stockDataList as $stockData) {
           $stockData += ['record_id' => $recordId] ;
           StockManagement::create($stockData);
         }
-        Log::info('recordId : 3');
 
         return response()->json([
             'error' => false,
@@ -117,9 +112,8 @@ class StockController extends Controller
      * @return response result
      */
     public function getRecord(Request $request) {
-      if ($request->put()) {
-
-      }
+      $recordList = Record::all();
+      return $recordList->toJson();
     }
 
 }
