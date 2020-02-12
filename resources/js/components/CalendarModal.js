@@ -4,31 +4,35 @@ import DayPicker from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
 
 const CalendarModal = ({show, handleClose, stocks}) => {
-  console.log(stocks);
+  let initialMonth = new Date();
+  let stockDates = [];
+
+  // 在庫で出荷した日を表示
+  if(typeof stocks !== 'undefined' && stocks.length > 0) {
+    stockDates = stocks.filter(stock => stock.stock_status === 1).map(stock => {
+      const created = new Date(stock.created_at);
+      initialMonth = (created < initialMonth) ? created : initialMonth;
+      return created;
+    });
+  }
+  console.log(stockDates);
+  console.log(initialMonth);
   return (
     <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>出荷カレンダー</Modal.Title>
         </Modal.Header>
         <Modal.Body><Row className="show-grid"><DayPicker numberOfMonths={3} 
-          initialMonth={new Date(2017, 3)}
-          selectedDays={[
-            new Date(2017, 3, 12),
-            new Date(2017, 3, 2),
-            {
-              after: new Date(2017, 3, 20),
-              before: new Date(2017, 3, 25),
-            },
-          ]}
+          initialMonth={initialMonth}
+          selectedDays={stockDates}
         /></Row></Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
-            Close
+            終了
           </Button>
         </Modal.Footer>
       </Modal>
   );
-
 };
 
 export default CalendarModal;

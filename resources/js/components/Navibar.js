@@ -1,7 +1,7 @@
 import React from 'react';
 import { ButtonToolbar, Button, Navbar, Nav, NavDropdown, Form, FormControl, Spinner } from 'react-bootstrap';
 
-const Navibar = ({ naviBarInfo, selectNaviItem, handlingInsert}) => {
+const Navibar = ({ naviBarInfo, selectNaviItem, handlingInsert, selectRecordTable}) => {
   const naviItems = naviBarInfo.naviItems.map(item => {
     return <Nav.Link active={(item.id === naviBarInfo.currentNaviId)}　key= {item.id} onClick={e => selectNaviItem(item.id) }>{item.name}</Nav.Link>;
   })
@@ -15,7 +15,7 @@ const Navibar = ({ naviBarInfo, selectNaviItem, handlingInsert}) => {
           <Nav className="mr-auto" >
             { (naviBarInfo.pending) ? <Spinner animation="border" variant="primary" /> : naviItems}
             <NavDropdown title="設定" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+              <NavDropdown.Item onClick={selectRecordTable} >保存記録</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
               <NavDropdown.Divider />

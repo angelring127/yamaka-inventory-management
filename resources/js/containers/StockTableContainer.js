@@ -13,7 +13,9 @@ const StockTableContainer = () => {
   const stockTable = useSelector(state => state.stockTable, []);
   const naviBarInfo = useSelector(state => state.navibar, []);
   useEffect(() => {
-    dispatch(fetchNaviBar.selectNaviItem(naviBarInfo.currentNaviId));
+    if (!naviBarInfo.pending) {
+      dispatch(fetchNaviBar.selectNaviItem(naviBarInfo.currentNaviId));
+    }
   }, []);
 
   // 方品入力登録
