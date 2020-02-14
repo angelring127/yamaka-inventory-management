@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 use App\StockManagement;
-use App\Http\Requests\InsertStockData;
+use App\Record;
 
 class StockController extends Controller
 {
@@ -64,31 +64,56 @@ class StockController extends Controller
       }
     }
 
+    /**
+     * 入力した在庫登録
+     * @param Request $request 
+     * @return response result
+     */
     public function insertStockList(Request $request) {
-      $stockDataList = $request->all();
-      foreach($stockDataList as $stockData) {
-        $validator = Validator::make($stockData, array(
-            'item_id' => 'required',
-            'stock_count' => 'required',
-            'stock_status' => 'required',
-            'middle_category_id' => 'required',
-            'big_category_id' => 'required',
-        ));
-        if ($validator->fails()) {
-          Log::info('insert error : '. $validator->errors());
-          return response()->json([
-              'error'    => true,
-              'messages' => $validator->errors(),
-          ], 422);
+      if ($request->ajax() && $request->post()) {
+        $stockDataList = $request->all();
+        foreach($stockDataList as $stockData) {
+          $validator = Validator::make($stockData, array(
+              'item_id' => 'required',
+              'stock_count' => 'required',
+              'stock_status' => 'required',
+              'middle_category_id' => 'required',
+              'big_category_id' => 'required',
+          ));
+          if ($validator->fails()) {
+            Log::info('insert error : '. $validator->errors());
+            return response()->json([
+                'error'    => true,
+                'messages' => $validator->errors(),
+            ], 422);
+          }
         }
-      }
-      foreach($stockDataList as $stockData) {
-        StockManagement::create($stockData);
-      }      
+        // 入力項目にエラーがない場合Recordを生成
+        $record = Record::create();
+        $recordId = $record->id;
 
-      return response()->json([
-          'error' => false,
-      ], 200);
+        foreach($stockDataList as $stockData) {
+          $stockData += ['record_id' => $recordId] ;
+          StockManagement::create($stockData);
+        }
+
+        return response()->json([
+            'error' => false,
+        ], 200);
+      } else {
+        return response()->json([
+            'error'    => true,
+        ], 419);
+      }
+    }
+
+    /**
+     * 保存記録をだす
+     * @return response result
+     */
+    public function getRecord(Request $request) {
+      $recordList = Record::all();
+      return $recordList->toJson();
     }
 
 }

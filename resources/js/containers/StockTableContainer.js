@@ -13,11 +13,15 @@ const StockTableContainer = () => {
   const stockTable = useSelector(state => state.stockTable, []);
   const naviBarInfo = useSelector(state => state.navibar, []);
   useEffect(() => {
-    dispatch(fetchNaviBar.selectNaviItem(naviBarInfo.currentNaviId));
+    if (!naviBarInfo.pending) {
+      dispatch(fetchNaviBar.selectNaviItem(naviBarInfo.currentNaviId));
+    }
   }, []);
 
   // 方品入力登録
   const insertStockData = (insertStockDataList) => {dispatch(storeStockTable.insertStockData(insertStockDataList))};
+  // カレンダーに在庫の現像を表示するため選択された在庫ストアに保管
+  const selectStockList = (selectStockList) => {dispatch(storeStockTable.selectStockList(selectStockList))};
 
   //在庫入力をリストに追加 
   const insertData = e => {
@@ -64,7 +68,7 @@ const StockTableContainer = () => {
   };
 
   return (
-    <StockTable stockTableInfo={stockTable} insertData={insertData}/>
+    <StockTable stockTableInfo={stockTable} insertData={insertData} selectStockList={selectStockList} />
   );
 }
 

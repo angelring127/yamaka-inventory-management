@@ -5,6 +5,8 @@ import 'react-day-picker/lib/style.css';
 import { css } from "@emotion/core";
 // First way to import
 import { BounceLoader } from "react-spinners";
+import CalendarModal from './CalendarModal';
+
 const override = css`
   display: block;
   margin: 0 auto;
@@ -12,14 +14,18 @@ const override = css`
 `;
 
 // 在庫現況を入力できる入力板を表示
-const StockTable = ({ stockTableInfo, insertData }) => {
+const StockTable = ({ stockTableInfo, insertData, selectStockList }) => {
 
   // modal flag
   const [show, setShow] = useState(false);
 
   // modalHandling
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleShow = (item) => {
+    selectStockList(item.stocks)
+    setShow(true);
+
+  };
 
   let tableItems = null;
   const emptyErrorMsg = '項目が有りません。';
@@ -35,36 +41,12 @@ const StockTable = ({ stockTableInfo, insertData }) => {
         </div>
     </Container>
   );
-
-  // カレンダーモーダル
-  const modal = (
-    <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
-        </Modal.Header>
-        <Modal.Body><Row className="show-grid"><DayPicker numberOfMonths={3} 
-          initialMonth={new Date(2017, 3)}
-          selectedDays={[
-            new Date(2017, 3, 12),
-            new Date(2017, 3, 2),
-            {
-              after: new Date(2017, 3, 20),
-              before: new Date(2017, 3, 25),
-            },
-          ]}
-        /></Row></Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
-  );
         
   if (stockTableInfo.stockItems.length !== 0) {
     tableItems = stockTableInfo.stockItems.map(middleCategory => {
       const items = middleCategory.items.map(item => {
         let stockCount = 0;
+        // 在庫の計算
         item.stocks.map(stock => {
             if (stock.stock_status === 1) {
               stockCount -= stock.stock_count;
@@ -77,7 +59,7 @@ const StockTable = ({ stockTableInfo, insertData }) => {
           <td>{item.name}</td>
           <td contentEditable="true" item_id={item.id} big_category_id= {item.big_category_id} middle_category_id= {item.middle_category_id} suppressContentEditableWarning={true} name="export" onInput={insertData} ></td>
           <td contentEditable="true" item_id={item.id} big_category_id= {item.big_category_id} middle_category_id= {item.middle_category_id} suppressContentEditableWarning={true} name="import" onInput={insertData} ></td>
-          <td onClick={handleShow}>{stockCount}</td>
+          <td onClick={e => handleShow(item)} item={item.stocks} >{stockCount}</td>
         </tr>;
       });
       return <Col xs={4} key={middleCategory.id}>
@@ -108,7 +90,7 @@ const StockTable = ({ stockTableInfo, insertData }) => {
           <Row>
             { tableItems }
           </Row>
-          { modal }
+          <CalendarModal show={show} handleClose={handleClose} stocks={stockTableInfo.selectedStockList}/>
         </Container>
       )}
     </div>

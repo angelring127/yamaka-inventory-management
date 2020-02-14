@@ -1,12 +1,14 @@
 import { combineReducers } from 'redux';
-import counter from './counter';
+import record from './record';
 import navibar from './navibar';
 import stockTable from './stockTable';
+import page from './page';
 
 const rootReducer = combineReducers({
-  counter,
+  record,
   navibar,
-  stockTable
+  stockTable,
+  page
 });
 
 export default rootReducer;
