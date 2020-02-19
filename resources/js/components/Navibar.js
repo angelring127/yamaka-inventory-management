@@ -13,7 +13,7 @@ const Navibar = ({ naviBarInfo, selectNaviItem, handlingInsert, selectRecordTabl
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto" >
-            { (naviBarInfo.pending) ? <Spinner animation="border" variant="primary" /> : naviItems}
+            { (naviBarInfo.pending) ? <Spinner animation="grow" variant="primary" /> : naviItems}
             <NavDropdown title="設定" id="basic-nav-dropdown">
               <NavDropdown.Item onClick={selectRecordTable} >保存記録</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>

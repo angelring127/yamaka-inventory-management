@@ -51,7 +51,7 @@ const StockTable = ({ stockTableInfo, insertData, selectStockList }) => {
             if (stock.stock_status === 1) {
               stockCount -= stock.stock_count;
             } else {
-              stockCount += stock.stock_count;
+              stockCount += stock.currentstock_count;
             }
           return stock;
         });
