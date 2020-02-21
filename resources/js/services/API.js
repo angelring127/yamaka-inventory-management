@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseURL = 'http://localhost:3000/'; //本番環境
+const baseURL = 'http://localhost:3000/api/'; //本番環境
 // const baseURL = 'http://localhost:8000/'; //テスト環境
 const stock = 'stock';
 const navi = 'navi'; //navigationBar情報
