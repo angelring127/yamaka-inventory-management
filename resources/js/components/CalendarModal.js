@@ -2,6 +2,10 @@ import React, {useState} from 'react';
 import {Row, Modal, Button} from 'react-bootstrap';
 import DayPicker from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
+import MomentLocaleUtils from 'react-day-picker/moment';
+import ShipmentListView from './ShipmentListView';
+
+import 'moment/locale/ja';
 
 const CalendarModal = ({show, handleClose, stocks}) => {
   let initialMonth = new Date();
@@ -19,11 +23,15 @@ const CalendarModal = ({show, handleClose, stocks}) => {
     });
   }
 
-  const dayPicker = <DayPicker numberOfMonths={3} 
-                      initialMonth={initialMonth}
-                      selectedDays={stockDates}
-                    />;
-  const shipmentView = <div>shipmentView</div>;
+  const dayPicker = <Row className="show-grid">
+    <DayPicker numberOfMonths={3} 
+      localeUtils={MomentLocaleUtils}
+      locale={'ja'}
+      initialMonth={initialMonth}
+      selectedDays={stockDates}
+    />
+  </Row>;
+  const shipmentView = <ShipmentListView />;
 
   const modalTitle = !showShipmentView ? "製造カレンダー" : "出荷リスト";
   const toggleBtnText = showShipmentView ? "製造カレンダー" : "出荷リスト";
@@ -33,9 +41,9 @@ const CalendarModal = ({show, handleClose, stocks}) => {
         <Modal.Header closeButton>
           <Modal.Title>{modalTitle}</Modal.Title>
         </Modal.Header>
-        <Modal.Body><Row className="show-grid">
+        <Modal.Body>
           { showShipmentView ? shipmentView : dayPicker}
-        </Row></Modal.Body>
+        </Modal.Body>
         <Modal.Footer>
           <Button variant="info" onClick={handleShipmentView}>
           {toggleBtnText}

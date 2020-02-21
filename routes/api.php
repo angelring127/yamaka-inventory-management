@@ -23,9 +23,18 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
+/**
+ * 選択された月の出荷リストをだす
+ * @param int item_id
+ * @param date selected_date
+ * @return response result
+ */
 Route::get('stock/{id}/{date}', function(Request $request, $id, $date) {
-    $stocks = StockManagement::all();
+    $stocks = StockManagement::withTrashed()
+                              ->where([['stock_status', 1],['item_id', $id]])
+                              ->get();
+    dump($stocks);
+
 
     return $stocks;
 });
@@ -72,7 +81,7 @@ Route::get('stock/{id}', function(Request $request, $id) {
  * @param Request $request 
  * @return response result
  */
-Route::post('/stock', function(Request $request) {
+Route::post('stock', function(Request $request) {
   if ($request->ajax() && $request->post()) {
     $stockDataList = $request->all();
     foreach($stockDataList as $stockData) {
@@ -197,7 +206,7 @@ Route::post('/stock', function(Request $request) {
  * 保存記録をだす
  * @return response result
  */
-Route::get('/record', function(Request $request) {
+Route::get('record', function(Request $request) {
   $recordList = Record::all();
   return $recordList->toJson();
 });

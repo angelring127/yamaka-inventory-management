@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import {Table, Container, Row, Col, Spinner, Modal, Button} from 'react-bootstrap';
-import DayPicker from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
 import { css } from "@emotion/core";
 // First way to import
