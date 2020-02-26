@@ -35,3 +35,8 @@ export const insertStockDataList = (data) => {
 export const getRecords = () => {
   return axiosApi.get(record);
 }
+
+// 選択された日付の出荷リストをだす。
+export const getShipmentList = (id, yearMonth) => {
+  return axiosApi.get(stock + '/' + id + '/' + yearMonth);
+}

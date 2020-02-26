@@ -30,10 +30,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
  * @return response result
  */
 Route::get('stock/{id}/{date}', function(Request $request, $id, $date) {
-    $stocks = StockManagement::withTrashed()
+  $date = new DateTime($date);
+  $stocks = StockManagement::withTrashed()
                               ->where([['stock_status', 1],['item_id', $id]])
                               ->get();
-    dump($stocks);
+  dump($date->format('Y-m-d H:i:s'));
 
 
     return $stocks;

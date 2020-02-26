@@ -21,3 +21,24 @@ export const insertStockList = (navibarId, stockDataList) => {
     })
   }
 }
+
+
+/**
+ * 日付に対象される出荷リストをだす。
+ * @param id item_id
+ * @param yearMonth date 'yyyymm'
+ */
+export const getShipmentList = (id, yearMonth) => {
+  return dispatch => {
+    dispatch(storeStockTable.onPending());
+    services.getShipmentList(id, yearMonth)
+    .then(res => {
+      console.log(res);
+      if (!res.error) {
+
+      }
+    }).catch(error => {
+      
+    })
+  }
+}
