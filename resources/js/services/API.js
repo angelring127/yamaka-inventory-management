@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseURL = 'http://localhost:3000/'; //本番環境
+const baseURL = 'http://localhost:3000/api/'; //本番環境
 // const baseURL = 'http://localhost:8000/'; //テスト環境
 const stock = 'stock';
 const navi = 'navi'; //navigationBar情報
@@ -34,4 +34,9 @@ export const insertStockDataList = (data) => {
 // 保存記録を呼び出す。
 export const getRecords = () => {
   return axiosApi.get(record);
+}
+
+// 選択された日付の出荷リストをだす。
+export const getShipmentList = (id, yearMonth) => {
+  return axiosApi.get(stock + '/' + id + '/' + yearMonth);
 }

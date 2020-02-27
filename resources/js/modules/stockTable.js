@@ -11,7 +11,7 @@ export const fetchSuccess = (stockItems) => ({ type: FETCH_STOCK_TABLE_SUCESS, p
 export const onPending = () => ({ type: FETCH_STOCK_TABLE_PENDING});
 export const fetchError = (error) => ({ type: FETCH_ERROR_MESSAGE, payload: {error}});
 export const insertStockData = (stockDataList) => ({ type: INSERT_STOCK_DATA, payload: {stockDataList}});
-export const selectStockList = (stockDataList) => ({ type: SELECT_STOCK_LIST, payload: {stockDataList}});
+export const selectItem = (item) => ({ type: SELECT_STOCK_LIST, payload: {item}});
 
 
   // 액션 생성
@@ -21,7 +21,7 @@ const initialState = {
   currentNavi : null,
   error: null,
   insertStockDataList: [],
-  selectedStockList: [],
+  selectedItem: null
 };
 
 const stockTable = (state = initialState, action ) => {
@@ -57,7 +57,7 @@ const stockTable = (state = initialState, action ) => {
     case SELECT_STOCK_LIST:
       return {
         ...state,
-        selectedStockList : action.payload.stockDataList
+        selectedItem: action.payload.item
       }
     default:
       return state;

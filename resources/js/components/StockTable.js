@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
 import {Table, Container, Row, Col, Spinner, Modal, Button} from 'react-bootstrap';
-import DayPicker from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
 import { css } from "@emotion/core";
 // First way to import
 import { BounceLoader } from "react-spinners";
 import CalendarModal from './CalendarModal';
+import { useSelector } from 'react-redux';
+
 
 const override = css`
   display: block;
@@ -14,21 +15,21 @@ const override = css`
 `;
 
 // 在庫現況を入力できる入力板を表示
-const StockTable = ({ stockTableInfo, insertData, selectStockList }) => {
+const StockTable = ({ stockTableInfo, insertData, selectItem }) => {
 
+  const constText = useSelector( state => state.constText, []);
   // modal flag
   const [show, setShow] = useState(false);
 
   // modalHandling
   const handleClose = () => setShow(false);
   const handleShow = (item) => {
-    selectStockList(item.stocks)
+    selectItem(item)
     setShow(true);
 
   };
 
   let tableItems = null;
-  const emptyErrorMsg = '項目が有りません。';
   const isPending = (
     <Container style={{marginTop: "500px"}} >
         <div className="sweet-loading">
@@ -67,14 +68,14 @@ const StockTable = ({ stockTableInfo, insertData, selectStockList }) => {
         <Table responsive striped bordered hover>
           <thead>
             <tr>
-              <th>商品名</th>
-              <th>出荷</th>
-              <th>製造</th>
-              <th>在庫</th>
+              <th>{constText.itemName}</th>
+              <th>{constText.shipment}</th>
+              <th>{constText.manufacture}</th>
+              <th>{constText.inventory}</th>
             </tr>
           </thead>
           <tbody>
-           {(items.length !==0 ? items : <tr><td colSpan="4">{emptyErrorMsg}</td></tr>)}
+           {(items.length !==0 ? items : <tr><td colSpan="4">{constText.emptyErrorMsg}</td></tr>)}
           </tbody>
         </Table>
       </Col>
@@ -90,7 +91,7 @@ const StockTable = ({ stockTableInfo, insertData, selectStockList }) => {
           <Row>
             { tableItems }
           </Row>
-          <CalendarModal show={show} handleClose={handleClose} stocks={stockTableInfo.selectedStockList}/>
+          <CalendarModal show={show} handleClose={handleClose} item = {stockTableInfo.selectedItem}/>
         </Container>
       )}
     </div>

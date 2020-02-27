@@ -11,7 +11,3 @@
 |
 */
 Route::view('/', 'app');
-Route::get('/navi', 'StockController@navi');
-Route::get('/stock/{id}', 'StockController@selectNavi');
-Route::get('/record','StockController@getRecord');
-Route::post('/stock', 'StockController@insertStockList');
