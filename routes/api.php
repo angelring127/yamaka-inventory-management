@@ -117,10 +117,11 @@ Route::post('stock', function(Request $request) {
           if ($oldImportStock !== null) {
             if ($stockCount - $oldImportStock->currentstock_count > 0) {
               // 出荷数　-　一番古い在庫で出荷数が残る場合古い在庫分出荷数で記録
+              $shippingstockData = $stockData;
               $stockData['stock_count'] = $oldImportStock->currentstock_count;
               $stockData += ['shipment_id' => $oldImportStock->record_id];
-              $stockData = StockManagement::create($stockData);
-              $stockData->delete();
+              $shippingstockData = StockManagement::create($stockData);
+              $shippingstockData->delete();
               
               $stockCount -= $oldImportStock->currentstock_count;
 
@@ -161,7 +162,7 @@ Route::post('stock', function(Request $request) {
             break;
           } else {
             // 在庫なしで出庫の場合がある
-            if ($stockCount - $notShppingStock->currentstock_count > 0) {
+            if ($stockCount - $notShppingStock->stock_count > 0) {
               // 新製造の数が残り出荷より多い場合
               $notShppingStock->shipment_id= $stockData['record_id'];
               $notShppingStock->update();
