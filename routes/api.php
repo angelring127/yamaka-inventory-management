@@ -30,14 +30,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
  * @return response result
  */
 Route::get('stock/{id}/{date}', function(Request $request, $id, $date) {
-  $date = new DateTime($date);
+  $startDate = new DateTime($date);
+  $lastDate = new DateTime($date);
+  $lastDate->modify('+1 month');
   $stocks = StockManagement::withTrashed()
                               ->where([['stock_status', 1],['item_id', $id]])
+                              ->whereBetween('created_at',[$startDate, $lastDate])
                               ->get();
-  dump($date->format('Y-m-d H:i:s'));
-
-
-    return $stocks;
+  return $stocks;
 });
 
 // ナビゲーションのカテゴリーリストを出す。

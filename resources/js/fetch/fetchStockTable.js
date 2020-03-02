@@ -35,10 +35,10 @@ export const getShipmentList = (id, yearMonth) => {
     .then(res => {
       console.log(res);
       if (!res.error) {
-
+        dispatch(storeStockTable.setShipmentList(res.data))
       }
     }).catch(error => {
-      
+      dispatch(storeStockTable.fetchError(error));
     })
   }
 }

@@ -16,11 +16,14 @@ const ShipmentListView = ({item}) => {
   }; 
 
   const constText = useSelector(state => state.constText, []);
+  const selectedShipmentList = useSelector(state => state.stockTable.selectedShipmentList, []);
+  const shipmentTableList = selectedShipmentList !== null ? 
+    selectedShipmentList.map(shipment => <tr><td>{shipment.created_at}</td><td>{shipment.stock_count}</td></tr>) : null;
   const [startDate, setStartDate] = useState(new Date());
+  const emptyErrorMsg = <tr><td colSpan="2">{constText.emptyErrorMsg}</td></tr>;
 
   const handleDatePicker = (date) => {
     const strDate = date.getFullYear() + '-' + ('00' + (date.getMonth() + 1)).slice(-2);
-    console.log(strDate);
     setYearMonth(strDate);
     setStartDate(date);
   };
@@ -32,6 +35,9 @@ const ShipmentListView = ({item}) => {
           <th>{constText.shipment}</th>
           </tr>
         </thead>
+        <tbody>
+          {shipmentTableList !== null ? shipmentTableList : emptyErrorMsg}
+        </tbody>
     </Table>
   );
   return (
@@ -51,7 +57,7 @@ const ShipmentListView = ({item}) => {
         </InputGroup>
       </Row>
       <Row>
-      { constText.emptyErrorMsg }
+      { shipmentList }
       </Row>
     </Container>
   );
