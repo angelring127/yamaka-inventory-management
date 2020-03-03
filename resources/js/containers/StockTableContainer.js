@@ -68,7 +68,7 @@ const StockTableContainer = () => {
   };
 
   return (
-    <StockTable stockTableInfo={stockTable} insertData={insertData} selectItem={selectItem} />
+    <StockTable insertData={insertData} selectItem={selectItem} />
   );
 }
 
