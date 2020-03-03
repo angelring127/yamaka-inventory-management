@@ -8,6 +8,12 @@ const initialState = {
   itemName : '商品名',
   selectedYearMonth : '選択年月',
   dateformat : 'yyyy年MM月',
+  saveModal : {
+    exit: '終了',
+    function : '保存',
+    messgae : '入力した内容を保存しますか？',
+    title : '入力保存'    
+  },
 };
 
 const constText = (state = initialState, action ) => {

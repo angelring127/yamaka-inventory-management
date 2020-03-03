@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import Navibar from '../components/Navibar';
 import * as fetchNaviBar from '../fetch/fetchNaviBar';
 import * as fetchStockTable from '../fetch/fetchStockTable';
+import * as storeNaviBar from '../modules/navibar';
 import { setPage } from '../modules/page';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -24,9 +25,21 @@ const NaviBarContainer = () => {
     dispatch(setPage(1));
   }
   const insertStockData = (navibarId, stockDataList) => {dispatch(fetchStockTable.insertStockList(navibarId, stockDataList))};
-  const handlingInsert = () => {insertStockData(naviBarInfo.currentNaviId, stockTable.insertStockDataList);}
+
+  let isAlert = false;
+  const handlingInsert = () => {
+    if (stockTable.insertStockDataList.length > 0) {
+      insertStockData(naviBarInfo.currentNaviId, stockTable.insertStockDataList);
+    } else {
+      dispatch(storeNaviBar.showAlert());
+    }
+  };
   return (
-    <Navibar naviBarInfo= {naviBarInfo} selectNaviItem= {selectNaviItem} handlingInsert={handlingInsert} selectRecordTable={selectRecordTable} />
+    <Navibar
+      selectNaviItem= {selectNaviItem} 
+      handlingInsert={handlingInsert} 
+      selectRecordTable={selectRecordTable}
+    />
   );
 }
 

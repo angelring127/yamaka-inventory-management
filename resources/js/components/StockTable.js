@@ -30,7 +30,10 @@ const isPending = (
   </Container>
 );
 
-const setTable = (stockTable, insertData, handleShow, constText) => {
+/**
+ * テーブル内容を作成
+ */
+const setTable = (stockTable, handlerInsertStock, handleShow, constText) => {
   return stockTable.stockItems.map(middleCategory => {
     const items = middleCategory.items.map(item => {
       let stockCount = 0;
@@ -46,8 +49,8 @@ const setTable = (stockTable, insertData, handleShow, constText) => {
       });
       return <tr key={item.id} id={item.id} big_category_id= {item.big_category_id} middle_category_id= {item.middle_category_id}>
         <td>{item.name}</td>
-        <td contentEditable="true" item_id={item.id} big_category_id= {item.big_category_id} middle_category_id= {item.middle_category_id} suppressContentEditableWarning={true} name="export" onInput={insertData} ></td>
-        <td contentEditable="true" item_id={item.id} big_category_id= {item.big_category_id} middle_category_id= {item.middle_category_id} suppressContentEditableWarning={true} name="import" onInput={insertData} ></td>
+        <td contentEditable="true" item_id={item.id} big_category_id= {item.big_category_id} middle_category_id= {item.middle_category_id} suppressContentEditableWarning={true} name="export" onInput={handlerInsertStock} ></td>
+        <td contentEditable="true" item_id={item.id} big_category_id= {item.big_category_id} middle_category_id= {item.middle_category_id} suppressContentEditableWarning={true} name="import" onInput={handlerInsertStock} ></td>
         <td onClick={e => handleShow(item)} item={item.stocks} >{stockCount}</td>
       </tr>;
     });
@@ -70,27 +73,81 @@ const setTable = (stockTable, insertData, handleShow, constText) => {
   });
 }
 
+//在庫入力をリストに追加 
+const insertData = (e, insertStockDataList) => {
+  let beforeInsertStockDataList = insertStockDataList;
+  const currentTarget = e.currentTarget;
+  const itemId = currentTarget.getAttribute('item_id');
+  const middleCategoryId = currentTarget.getAttribute('middle_category_id');
+  const bigCategoryId = currentTarget.getAttribute('big_category_id');
+  const status = (currentTarget.getAttribute('name') === "export") ? 1 : 2;
+  const checkCode = bigCategoryId + middleCategoryId + itemId + status;
+  // 数字以外文字を入力する場合削除
+  if(isNaN(Number(currentTarget.innerHTML))) {
+    currentTarget.innerHTML = currentTarget.innerHTML.replace(/\D/,'');
+  } else {
+    const stockCount = Number(currentTarget.innerHTML);
+    if (stockCount === 0) { 
+      beforeInsertStockDataList = beforeInsertStockDataList.filter(stockData => {
+        const check = stockData.big_category_id + stockData.middle_category_id + stockData.item_id + stockData.stock_status;
+        return check !== checkCode;
+      });
+    } else {
+      let isDuplicate = false;
+      beforeInsertStockDataList = beforeInsertStockDataList.map(stockData => {
+        const check = stockData.big_category_id + stockData.middle_category_id + stockData.item_id + stockData.stock_status;
+        if (check === checkCode) {
+          isDuplicate = true;
+          stockData.stock_count = stockCount;
+        }
+        return stockData;
+      });
+      if (!isDuplicate) {
+        // 項目追加
+        beforeInsertStockDataList[beforeInsertStockDataList.length] = {
+          stock_status : status,
+          stock_count : stockCount,
+          item_id : itemId,
+          middle_category_id : middleCategoryId,
+          big_category_id: bigCategoryId
+        };
+      }
+    }
+    return beforeInsertStockDataList;
+  }
+  return insertStockDataList;
+};
+
 // 在庫現況を入力できる入力板を表示
-const StockTable = ({insertData, selectItem }) => {
+const StockTable = ({ selectItem }) => {
   const constText = useSelector( state => state.constText, []);
   const stockTable = useSelector(state => state.stockTable, []);
   // modal flag
   const [show, setShow] = useState(false);
   const [tableItems, setTableItems] = useState(null);
+  
+  const [insertStockDataList, setInsertStockDataList] = useState([]);
 
   // modalHandling
   const handleClose = () => setShow(false);
   const handleShow = (item) => {
     selectItem(item)
     setShow(true);
-
   };
+
+  const handlerInsertStock = e => {
+    const result = insertData(e, insertStockDataList);
+    console.log(result);
+    setInsertStockDataList(result);
+    console.log(insertStockDataList);
+  }
+  
 
   useEffect(() => {
     if (stockTable.stockItems.length !== 0 && !stockTable.isPending) {
-      setTableItems(setTable(stockTable, insertData, handleShow, constText));
+      setTableItems(setTable(stockTable, handlerInsertStock, handleShow, constText));
     }
-  },[stockTable.stockItems,stockTable.insertStockDataList]);
+  },[stockTable.stockItems, insertStockDataList]);
   
   
   return (
