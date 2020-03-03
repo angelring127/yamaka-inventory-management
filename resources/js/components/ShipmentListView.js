@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {Form,Row, Col, Modal, Table, InputGroup, Container} from 'react-bootstrap';
+import React, {useState, useEffect} from 'react';
+import {Form,Row, Col, Button, Table, InputGroup, Container} from 'react-bootstrap';
 import DatePicker, { registerLocale, setDefaultLocale } from 'react-datepicker';
 import { useSelector, useDispatch } from 'react-redux';
 import * as fetchStock from '../fetch/fetchStockTable';
@@ -8,25 +8,35 @@ import ja from 'date-fns/locale/ja';
 
 registerLocale('ja', ja)
 
+/**
+ * モーダル画面で出荷リストを選択された月によって表示する機能
+ */
 const ShipmentListView = ({item}) => {
   const dispatch = useDispatch();
-  // テーブル変更
+  // 選択した年月から出荷リスト取得
   const setYearMonth = (yearMonth) => {
     dispatch(fetchStock.getShipmentList(item.id, yearMonth));
-  }; 
+  };
 
+  //　文言object
   const constText = useSelector(state => state.constText, []);
   const selectedShipmentList = useSelector(state => state.stockTable.selectedShipmentList, []);
   const shipmentTableList = selectedShipmentList !== null ? 
-    selectedShipmentList.map(shipment => <tr><td>{shipment.created_at}</td><td>{shipment.stock_count}</td></tr>) : null;
+    selectedShipmentList.map(shipment => <tr key={shipment.id}><td>{shipment.created_at}</td><td>{shipment.stock_count}</td></tr>) : [];
   const [startDate, setStartDate] = useState(new Date());
-  const emptyErrorMsg = <tr><td colSpan="2">{constText.emptyErrorMsg}</td></tr>;
-
-  const handleDatePicker = (date) => {
-    const strDate = date.getFullYear() + '-' + ('00' + (date.getMonth() + 1)).slice(-2);
+  useEffect(() => {
+    // 年月が初期化、
+    const strDate = startDate.getFullYear() + '-' + ('00' + (startDate.getMonth() + 1)).slice(-2);
     setYearMonth(strDate);
-    setStartDate(date);
-  };
+  }, [startDate]);
+
+  const ref = React.createRef();
+  // カレンダー選択ボタン
+  const CustomCalendarButton = React.forwardRef((props, ref) => (
+    <Button ref={ref} variant="light" onClick={props.onClick}>{props.value}</Button>
+  ));
+
+  const emptyErrorMsg = <tr><td colSpan="2">{constText.emptyErrorMsg}</td></tr>;
   const shipmentList = (
     <Table responsive striped bordered hover>
         <thead>
@@ -36,7 +46,7 @@ const ShipmentListView = ({item}) => {
           </tr>
         </thead>
         <tbody>
-          {shipmentTableList !== null ? shipmentTableList : emptyErrorMsg}
+          {shipmentTableList.length > 0 ? shipmentTableList : emptyErrorMsg}
         </tbody>
     </Table>
   );
@@ -44,15 +54,13 @@ const ShipmentListView = ({item}) => {
     <Container>
       <Row>
         <InputGroup size="sm" className="mb-3">
-          <InputGroup.Prepend>
-            <InputGroup.Text id="inputGroup-sizing-sm">Default</InputGroup.Text>
-          </InputGroup.Prepend>
           <DatePicker
             selected={startDate}
-            onChange={date => handleDatePicker(date)}
-            dateFormat="yyyy年MM月"
+            onChange={date => setStartDate(date)}
+            dateFormat={constText.dateformat}
             locale="ja"
             showMonthYearPicker
+            customInput={<CustomCalendarButton ref={ref} />}
           />
         </InputGroup>
       </Row>

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Row, Modal, Button} from 'react-bootstrap';
 import DayPicker from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
@@ -13,6 +13,10 @@ const CalendarModal = ({show, handleClose, item}) => {
 
   const [showShipmentView, setShipmentView] = useState(false);
   const handleShipmentView = () => setShipmentView(!showShipmentView);
+  useEffect(() => {
+    // 新し項目を選択された時初期画面に戻る
+    setShipmentView(false);
+  }, [item]);
 
   // 在庫で出荷した日を表示
   if (item !== null) {

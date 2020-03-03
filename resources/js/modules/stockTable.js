@@ -6,6 +6,7 @@ const FETCH_ERROR_MESSAGE = 'stockTable/FETCH_ERROR_MESSAGE';
 const INSERT_STOCK_DATA = 'stockTable/INSERT_STOCK_DATA';
 const SELECT_STOCK_LIST = 'stockTable/SELECT_STOCK_LIST';
 const SET_SHIPMENT_LIST = 'stockTable/SET_SHIPMENT_LIST';
+const FRESH_INSERT_STOCK_DATALIST = 'stockTable/FRESH_INSERT_STOCK_DATALIST';
 
 
 
@@ -15,6 +16,7 @@ export const fetchError = (error) => ({ type: FETCH_ERROR_MESSAGE, payload: {err
 export const insertStockData = (stockDataList) => ({ type: INSERT_STOCK_DATA, payload: {stockDataList}});
 export const selectItem = (item) => ({ type: SELECT_STOCK_LIST, payload: {item}});
 export const setShipmentList = (shipmentList) => ({ type: SET_SHIPMENT_LIST, payload: {shipmentList}});
+export const freshInsertStockDataList = () => ({ type: FRESH_INSERT_STOCK_DATALIST});
 
 
   // 액션 생성
@@ -67,6 +69,11 @@ const stockTable = (state = initialState, action ) => {
       return {
         ...state,
         selectedShipmentList: action.payload.shipmentList
+      };
+    case FRESH_INSERT_STOCK_DATALIST:
+      return {
+        ...state,
+        insertStockDataList: []
       };
     default:
       return state;

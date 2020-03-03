@@ -6,6 +6,8 @@ const initialState = {
   inventory : '在庫',
   manufacture : '製造',
   itemName : '商品名',
+  selectedYearMonth : '選択年月',
+  dateformat : 'yyyy年MM月',
 };
 
 const constText = (state = initialState, action ) => {

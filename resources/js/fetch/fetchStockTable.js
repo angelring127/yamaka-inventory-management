@@ -14,6 +14,7 @@ export const insertStockList = (navibarId, stockDataList) => {
       if (!res.error) {
         console.log('refresh');
         dispatch(fetchNaviBar.selectNaviItem(navibarId));
+        dispatch(storeStockTable.freshInsertStockDataList());
       }
     }).catch(error =>{
       const isFail = '登録に失敗しました。';

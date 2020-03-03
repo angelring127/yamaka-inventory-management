@@ -36,7 +36,6 @@ export const selectNaviItem = (id) => {
         throw (res.error);
       }
       dispatch(storeNaviBar.selectNavibar(id));
-      console.log(id);
       if (typeof res.data !== 'undefined' && res.data.length !== 0) {
         dispatch(storeStockTable.fetchSuccess(res.data));
       } else {
