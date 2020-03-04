@@ -1,3 +1,7 @@
+/**
+ * 在庫保存記録用の redux modules
+ */
+
 
 const GET_RECORD_LIST = 'record/GET_RECORD_LIST';
 const FETCH_RECORD_PENDING = 'record/FETCH_PENDING';

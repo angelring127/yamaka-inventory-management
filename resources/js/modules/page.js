@@ -1,3 +1,6 @@
+/**
+ * 画面ページ用の　redux modules
+ */
 
 const SET_PAGE = 'page/SELECT_NAVIBAR';
 

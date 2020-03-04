@@ -1,3 +1,6 @@
+/**
+ * ナビゲーションバー用のredux modules
+ */
 
 const FETCH_NAVIBAR_SUCESS = 'navibar/FETCH_SUCESS';
 const FETCH_NAVIBAR_PENDING = 'navibar/FETCH_PENDING';

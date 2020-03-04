@@ -1,5 +1,8 @@
-  // 액션 생성
-const initialState = {
+/**
+ * 固定文言
+ */
+
+  const initialState = {
   emptyErrorMsg : '項目が有りません。',
   emptyStockErrorMsg : '入力された在庫が有りません',
   error : 'エラー',

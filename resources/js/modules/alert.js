@@ -1,4 +1,8 @@
 
+/**
+ * アラート用のmodules
+ */
+
 const SHOW_ALERT = 'alert/SHOW_ALERT';
 const CLOSE_ALERT = 'alert/CLOSE_ALERT';
 
