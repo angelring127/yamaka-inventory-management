@@ -14,6 +14,7 @@ export const insertStockList = (navibarId, stockDataList) => {
       if (!res.error) {
         console.log('refresh');
         dispatch(fetchNaviBar.selectNaviItem(navibarId));
+        dispatch(storeStockTable.freshInsertStockDataList());
       }
     }).catch(error =>{
       const isFail = '登録に失敗しました。';
@@ -35,10 +36,10 @@ export const getShipmentList = (id, yearMonth) => {
     .then(res => {
       console.log(res);
       if (!res.error) {
-
+        dispatch(storeStockTable.setShipmentList(res.data))
       }
     }).catch(error => {
-      
+      dispatch(storeStockTable.fetchError(error));
     })
   }
 }

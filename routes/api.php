@@ -30,14 +30,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
  * @return response result
  */
 Route::get('stock/{id}/{date}', function(Request $request, $id, $date) {
-  $date = new DateTime($date);
+  $startDate = new DateTime($date);
+  $lastDate = new DateTime($date);
+  $lastDate->modify('+1 month');
   $stocks = StockManagement::withTrashed()
                               ->where([['stock_status', 1],['item_id', $id]])
+                              ->whereBetween('created_at',[$startDate, $lastDate])
                               ->get();
-  dump($date->format('Y-m-d H:i:s'));
-
-
-    return $stocks;
+  return $stocks;
 });
 
 // ナビゲーションのカテゴリーリストを出す。
@@ -117,11 +117,11 @@ Route::post('stock', function(Request $request) {
           if ($oldImportStock !== null) {
             if ($stockCount - $oldImportStock->currentstock_count > 0) {
               // 出荷数　-　一番古い在庫で出荷数が残る場合古い在庫分出荷数で記録
-              $shippingstockData = $stockData;
-              $stockData['stock_count'] = $oldImportStock->currentstock_count;
-              $stockData += ['shipment_id' => $oldImportStock->record_id];
-              $shippingstockData = StockManagement::create($stockData);
-              $shippingstockData->delete();
+              $shippingStock = $stockData;
+              $shippingStock['stock_count'] = $oldImportStock->currentstock_count;
+              $shippingStock += ['shipment_id' => $oldImportStock->record_id];
+              $shippingStock = StockManagement::create($shippingStock);
+              $shippingStock->delete();
               
               $stockCount -= $oldImportStock->currentstock_count;
 
@@ -131,10 +131,11 @@ Route::post('stock', function(Request $request) {
               $oldImportStock->delete();
             } else {
               // 出荷数　-　一番古い在庫で出荷数が残らない場合出荷数を記録
-              $stockData['stock_count'] = $stockCount;
-              $stockData += ['shipment_id' => $oldImportStock->record_id];
-              $stockData = StockManagement::create($stockData);
-              $stockData->delete();
+              $shippingStock = $stockData;
+              $shippingStock['stock_count'] = $stockCount;
+              $shippingStock += ['shipment_id' => $oldImportStock->record_id];
+              $shippingStock = StockManagement::create($shippingStock);
+              $shippingStock->delete();
 
               $oldImportStock->currentstock_count -= $stockCount;
               $oldImportStock->save();
