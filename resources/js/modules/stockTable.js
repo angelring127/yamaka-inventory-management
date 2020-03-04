@@ -3,8 +3,10 @@
  */
 const FETCH_STOCK_TABLE_SUCESS = 'stockTable/FETCH_SUCESS';
 const FETCH_STOCK_TABLE_PENDING = 'stockTable/FETCH_PENDING';
+const FETCH_SHIPPMENT_PENDING = 'stockTable/FETCH_SHIPPMENT_PENDING';
 const SELECT_STOCK_TABLE = 'stockTable/SELECT_STOCK_TABLE';
 const FETCH_ERROR_MESSAGE = 'stockTable/FETCH_ERROR_MESSAGE';
+const FETCH_SHIPPMENT_ERROR_MESSAGE = 'stockTable/FETCH_SHIPPMENT_ERROR_MESSAGE';
 const INSERT_STOCK_DATA = 'stockTable/INSERT_STOCK_DATA';
 const SUCCESS_INSERT_STOCK_DATA = 'stockTable/SUCCESS_INSERT_STOCK_DATA';
 const CANCEL_INSERT_STOCK_DATA = 'stockTable/CANCEL_INSERT_STOCK_DATA';
@@ -16,7 +18,9 @@ const FRESH_INSERT_STOCK_DATALIST = 'stockTable/FRESH_INSERT_STOCK_DATALIST';
 
 export const fetchSuccess = (stockItems) => ({ type: FETCH_STOCK_TABLE_SUCESS, payload: {stockItems}});
 export const onPending = () => ({ type: FETCH_STOCK_TABLE_PENDING});
+export const onPendingForShippment = () => ({ type: FETCH_SHIPPMENT_PENDING});
 export const fetchError = (error) => ({ type: FETCH_ERROR_MESSAGE, payload: {error}});
+export const fetchShippmentError = (error) => ({ type: FETCH_SHIPPMENT_ERROR_MESSAGE, payload: {error}});
 export const insertStockData = () => ({ type: INSERT_STOCK_DATA, });
 export const successInsertStockData = () => ({type: SUCCESS_INSERT_STOCK_DATA});
 export const cancelInsertStockData = () => ({type: CANCEL_INSERT_STOCK_DATA});
@@ -28,6 +32,7 @@ export const freshInsertStockDataList = () => ({ type: FRESH_INSERT_STOCK_DATALI
   // 액션 생성
 const initialState = {
   isPending : false,
+  isPendingForModal : false,
   stockItems : [],
   currentNavi : null,
   error: null,
@@ -49,6 +54,11 @@ const stockTable = (state = initialState, action ) => {
         ...state,
         isPending: true
       };
+    case FETCH_SHIPPMENT_PENDING:
+      return {
+        ...state,
+        isPendingForModal: true
+      };
     case SELECT_STOCK_TABLE:
       return {
         ...state,
@@ -58,6 +68,13 @@ const stockTable = (state = initialState, action ) => {
       return {
         ...state,
         isPending: false,
+        stockItems: [],
+        error: action.payload.error
+      };
+    case FETCH_SHIPPMENT_ERROR_MESSAGE:
+      return {
+        ...state,
+        isPendingForModal: false,
         stockItems: [],
         error: action.payload.error
       };
@@ -85,7 +102,7 @@ const stockTable = (state = initialState, action ) => {
     case SET_SHIPMENT_LIST:
       return {
         ...state,
-        isPending : false,
+        isPendingForModal : false,
         selectedShipmentList: action.payload.shipmentList
       };
     default:

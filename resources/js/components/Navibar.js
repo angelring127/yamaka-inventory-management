@@ -22,7 +22,10 @@ const Navibar = ({ selectNaviItem, handlingInsert, selectRecordTable }) => {
   const constText = useSelector(state => state.constText, []);
   // navigation Info
   const naviBarInfo = useSelector(state => state.navibar, []);
+  // page Info
+  const pageInfo = useSelector(state => state.page, []);
 
+  const saveBtn = (pageInfo.page === 0 ) ? (<Button variant="success" onClick={handleShow}>{constText.saveModal.function}</Button>) : null;
 
   const naviItems = naviBarInfo.naviItems.map(item => {
     return <Nav.Link active={(item.id === naviBarInfo.currentNaviId)} key={item.id} onClick={e => selectNaviItem(item.id)}>{item.name}</Nav.Link>;
@@ -44,7 +47,7 @@ const Navibar = ({ selectNaviItem, handlingInsert, selectRecordTable }) => {
               <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
             </NavDropdown>
           </Nav>
-          <Button variant="success" onClick={handleShow}>{constText.saveModal.function}</Button>
+          {saveBtn}
         </Navbar.Collapse>
       </Navbar>
       <CommonModal show={show} handleClose={handleClose} context = {constText.saveModal} handler={handleInsert} />

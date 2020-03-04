@@ -15,7 +15,7 @@ export const fetchError = (error) => ({ type: FETCH_ERROR_MESSAGE, payload: {err
 
 const initialState = {
   pending : false,
-  recordList: {}
+  recordList: []
 };
 
 const record = (state = initialState, action ) => {

@@ -12,7 +12,7 @@ const RecordTableContainer = () => {
       dispatch(fetchRecord.getRecordList());
     }
   }, [])
-  return <RecordTable></RecordTable>;
+  return <RecordTable/>;
 };
 
 export default RecordTableContainer;

@@ -1,0 +1,7 @@
+.record-table thead > tr > th {
+  text-align: center;
+}
+
+.record-table tbody > tr > td {
+  text-align: center;
+}

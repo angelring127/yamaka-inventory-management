@@ -137,9 +137,7 @@ const StockTable = ({ selectItem, handler }) => {
 
   const handlerInsertStock = e => {
     const result = insertData(e, insertStockDataList);
-    console.log(result);
     setInsertStockDataList(result);
-    console.log(insertStockDataList);
   }
   
   // 在庫登録Action
