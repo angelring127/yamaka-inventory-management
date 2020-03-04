@@ -119,7 +119,7 @@ const insertData = (e, insertStockDataList) => {
 };
 
 // 在庫現況を入力できる入力板を表示
-const StockTable = ({ selectItem }) => {
+const StockTable = ({ selectItem, handler }) => {
   const constText = useSelector( state => state.constText, []);
   const stockTable = useSelector(state => state.stockTable, []);
   // modal flag
@@ -142,6 +142,19 @@ const StockTable = ({ selectItem }) => {
     console.log(insertStockDataList);
   }
   
+  // 在庫登録Action
+  useEffect(() => {
+    if (stockTable.isInsertStockData) {
+      if (insertStockDataList.length > 0) {
+        const param = insertStockDataList;
+        setInsertStockDataList([]);
+        handler.insertStockData(param);
+      } else {
+        handler.handleCancelInsertStockData();
+        handler.handleShowAlert();
+      }
+    }
+  },[stockTable.isInsertStockData])
 
   useEffect(() => {
     if (stockTable.stockItems.length !== 0 && !stockTable.isPending) {
@@ -150,20 +163,15 @@ const StockTable = ({ selectItem }) => {
   },[stockTable.stockItems, insertStockDataList]);
   
   
-  return (
-    <div>
-      {(stockTable.isPending) ? isPending : null}
-      {(stockTable.stockItems.length === 0) ? 
-      <h1 style={{marginTop: "100px"}}>{stockTable.error}</h1> 
-      : (
-        <Container style={{marginTop: "100px"}} >
-          <Row>
-            { tableItems }
-          </Row>
-          <CalendarModal show={show} handleClose={handleClose} item = {stockTable.selectedItem}/>
-        </Container>
-      )}
-    </div>
+  return ((stockTable.isPending) ? isPending : 
+    (
+      <Container style={{marginTop: "100px"}} >
+        <Row>
+          { (stockTable.stockItems.length === 0) ?  <h1 style={{marginTop: "100px"}}>{stockTable.error}</h1> : tableItems }
+        </Row>
+        <CalendarModal show={show} handleClose={handleClose} item = {stockTable.selectedItem}/>
+      </Container>
+    )
   );
 };
 
