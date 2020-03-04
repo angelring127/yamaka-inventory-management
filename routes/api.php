@@ -163,7 +163,7 @@ Route::post('stock', function(Request $request) {
             break;
           } else {
             // 在庫なしで出庫の場合がある
-            if ($stockCount - $notShppingStock->currentstock_count > 0) {
+            if ($stockCount - $notShppingStock->stock_count > 0) {
               // 新製造の数が残り出荷より多い場合
               $notShppingStock->shipment_id= $stockData['record_id'];
               $notShppingStock->update();
