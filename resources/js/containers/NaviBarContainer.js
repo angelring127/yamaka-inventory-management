@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import Navibar from '../components/Navibar';
 import * as fetchNaviBar from '../fetch/fetchNaviBar';
 import * as fetchStockTable from '../fetch/fetchStockTable';
-import * as storeNaviBar from '../modules/navibar';
+import * as storeAlert from '../modules/alert';
 import { setPage } from '../modules/page';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -13,6 +13,7 @@ const NaviBarContainer = () => {
   const dispatch = useDispatch();
   const naviBarInfo = useSelector(state => state.navibar, []);
   const stockTable = useSelector(state => state.stockTable, []);
+  const constText = useSelector(state => state.constText, []);
   useEffect(() => {
     dispatch(fetchNaviBar.fetchNaviBar());
   }, []);
@@ -25,13 +26,12 @@ const NaviBarContainer = () => {
     dispatch(setPage(1));
   }
   const insertStockData = (navibarId, stockDataList) => {dispatch(fetchStockTable.insertStockList(navibarId, stockDataList))};
-
-  let isAlert = false;
   const handlingInsert = () => {
     if (stockTable.insertStockDataList.length > 0) {
       insertStockData(naviBarInfo.currentNaviId, stockTable.insertStockDataList);
     } else {
-      dispatch(storeNaviBar.showAlert());
+      // アラートを出す
+      dispatch(storeAlert.showAlert(constText.emptyStockErrorMsg));
     }
   };
   return (

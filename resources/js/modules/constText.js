@@ -1,6 +1,8 @@
   // 액션 생성
 const initialState = {
   emptyErrorMsg : '項目が有りません。',
+  emptyStockErrorMsg : '入力された在庫が有りません',
+  error : 'エラー',
   yearMonth : '日時',
   shipment : '出荷',
   inventory : '在庫',
