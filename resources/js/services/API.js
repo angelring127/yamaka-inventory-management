@@ -36,6 +36,11 @@ export const getRecords = () => {
   return axiosApi.get(record);
 }
 
+// 在庫記録削除
+export const deleteRecords = (recordId) => {
+  return axiosApi.delete(record + '/' + recordId);
+}
+
 // 選択された日付の出荷リストをだす。
 export const getShipmentList = (id, yearMonth) => {
   return axiosApi.get(stock + '/' + id + '/' + yearMonth);

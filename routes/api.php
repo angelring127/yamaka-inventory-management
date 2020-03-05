@@ -220,5 +220,19 @@ Route::get('record', function(Request $request) {
  * @return result 
  */
 Route::delete('record/{recordId}', function(Request $request, $recordId){
-  
+  $record = Record::where('id',$recordId)->get();
+  Log::info('$record :' . $record);
+  // recordId를 가지고 있는 기록데이터가 있는지 확인
+  if (!isEmpty($record)) {
+    
+  }
+  // 
+  // $post->forceDelete(); 강제 삭제
+  // 제고가 많은경우
+  // 출하가 많은경우
+  // 
+
+  return response()->json([
+    
+  ], 200);
 }); 
