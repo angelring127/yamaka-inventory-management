@@ -1,3 +1,8 @@
+/**
+ * RecordTable.js
+ * 保存記録リスト画面表示
+ */
+
 import React from 'react';
 import { useSelector } from 'react-redux';
 
@@ -6,13 +11,14 @@ import { Table, Container, Row, Col, Spinner, Modal, Button } from 'react-bootst
 import '../app.css';
 
 
-
+/**
+ * Record項目をテーブル項目変更
+ */
 const setItems = (items, constText) => {
-  console.log(items);
   const empty = (<tr><td colSpan="3">{constText.emptyErrorMsg}</td></tr>);
   if (typeof items !== 'undefined' && items !== null) {
     return items.length === 0 ? empty :
-      items.map(item => (
+      items.map((item,index) => (
         <tr key={item.id}>
           <td>
             {item.id}
@@ -21,7 +27,11 @@ const setItems = (items, constText) => {
             {item.created_at}
           </td>
           <td>
-            <Button variant="danger">{constText.labelDelete}</Button>
+            {((items.length - 1) === index) ?
+              <Button variant="danger" >{constText.labelDelete}</Button>
+              :
+              <Button variant="danger" disabled>{constText.labelDelete}</Button>
+            }
           </td>
         </tr>
       ));

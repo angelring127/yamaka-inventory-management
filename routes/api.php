@@ -213,3 +213,12 @@ Route::get('record', function(Request $request) {
   $recordList = Record::all();
   return $recordList->toJson();
 });
+
+/**
+ * 保存記録を削除（一番最新記録を削除）
+ * @param int recordId
+ * @return result 
+ */
+Route::delete('record/{recordId}', function(Request $request, $recordId){
+  
+}); 
