@@ -1,3 +1,7 @@
+/**
+ * 在庫保存記録用の redux modules
+ */
+
 
 const GET_RECORD_LIST = 'record/GET_RECORD_LIST';
 const FETCH_RECORD_PENDING = 'record/FETCH_PENDING';
@@ -11,7 +15,7 @@ export const fetchError = (error) => ({ type: FETCH_ERROR_MESSAGE, payload: {err
 
 const initialState = {
   pending : false,
-  recordList: {}
+  recordList: []
 };
 
 const record = (state = initialState, action ) => {

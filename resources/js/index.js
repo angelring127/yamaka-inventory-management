@@ -7,6 +7,7 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import NaviBarContainer from './containers/NaviBarContainer';
 import PageContainer from './containers/PageContainer';
+import AlertContainer from './containers/AlertContainer'
 
 
 // Chrome で　開発ツールを利用できるようにする。
@@ -19,7 +20,9 @@ if (document.getElementById('index')) {
     ReactDOM.render(
     <Provider store={store}>
       <NaviBarContainer />
+      <AlertContainer />
       <PageContainer />
+      
     </Provider>
     , document.getElementById('index'));
 }

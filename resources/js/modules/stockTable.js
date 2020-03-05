@@ -1,9 +1,15 @@
-
+/**
+ * 在庫画面用の　redux modules
+ */
 const FETCH_STOCK_TABLE_SUCESS = 'stockTable/FETCH_SUCESS';
 const FETCH_STOCK_TABLE_PENDING = 'stockTable/FETCH_PENDING';
+const FETCH_SHIPPMENT_PENDING = 'stockTable/FETCH_SHIPPMENT_PENDING';
 const SELECT_STOCK_TABLE = 'stockTable/SELECT_STOCK_TABLE';
 const FETCH_ERROR_MESSAGE = 'stockTable/FETCH_ERROR_MESSAGE';
+const FETCH_SHIPPMENT_ERROR_MESSAGE = 'stockTable/FETCH_SHIPPMENT_ERROR_MESSAGE';
 const INSERT_STOCK_DATA = 'stockTable/INSERT_STOCK_DATA';
+const SUCCESS_INSERT_STOCK_DATA = 'stockTable/SUCCESS_INSERT_STOCK_DATA';
+const CANCEL_INSERT_STOCK_DATA = 'stockTable/CANCEL_INSERT_STOCK_DATA';
 const SELECT_STOCK_LIST = 'stockTable/SELECT_STOCK_LIST';
 const SET_SHIPMENT_LIST = 'stockTable/SET_SHIPMENT_LIST';
 const FRESH_INSERT_STOCK_DATALIST = 'stockTable/FRESH_INSERT_STOCK_DATALIST';
@@ -12,8 +18,12 @@ const FRESH_INSERT_STOCK_DATALIST = 'stockTable/FRESH_INSERT_STOCK_DATALIST';
 
 export const fetchSuccess = (stockItems) => ({ type: FETCH_STOCK_TABLE_SUCESS, payload: {stockItems}});
 export const onPending = () => ({ type: FETCH_STOCK_TABLE_PENDING});
+export const onPendingForShippment = () => ({ type: FETCH_SHIPPMENT_PENDING});
 export const fetchError = (error) => ({ type: FETCH_ERROR_MESSAGE, payload: {error}});
-export const insertStockData = (stockDataList) => ({ type: INSERT_STOCK_DATA, payload: {stockDataList}});
+export const fetchShippmentError = (error) => ({ type: FETCH_SHIPPMENT_ERROR_MESSAGE, payload: {error}});
+export const insertStockData = () => ({ type: INSERT_STOCK_DATA, });
+export const successInsertStockData = () => ({type: SUCCESS_INSERT_STOCK_DATA});
+export const cancelInsertStockData = () => ({type: CANCEL_INSERT_STOCK_DATA});
 export const selectItem = (item) => ({ type: SELECT_STOCK_LIST, payload: {item}});
 export const setShipmentList = (shipmentList) => ({ type: SET_SHIPMENT_LIST, payload: {shipmentList}});
 export const freshInsertStockDataList = () => ({ type: FRESH_INSERT_STOCK_DATALIST});
@@ -21,11 +31,12 @@ export const freshInsertStockDataList = () => ({ type: FRESH_INSERT_STOCK_DATALI
 
   // 액션 생성
 const initialState = {
-  pending : false,
+  isPending : false,
+  isPendingForModal : false,
   stockItems : [],
   currentNavi : null,
   error: null,
-  insertStockDataList: [],
+  isInsertStockData: false,
   selectedItem: null,
   selectedShipmentList: null,
 };
@@ -35,13 +46,18 @@ const stockTable = (state = initialState, action ) => {
     case FETCH_STOCK_TABLE_SUCESS:
       return {
         ...state,
-        pending: false,
+        isPending: false,
         stockItems: action.payload.stockItems
       };
     case FETCH_STOCK_TABLE_PENDING:
       return {
         ...state,
-        pending: true
+        isPending: true
+      };
+    case FETCH_SHIPPMENT_PENDING:
+      return {
+        ...state,
+        isPendingForModal: true
       };
     case SELECT_STOCK_TABLE:
       return {
@@ -51,14 +67,32 @@ const stockTable = (state = initialState, action ) => {
     case FETCH_ERROR_MESSAGE:
       return {
         ...state,
-        pending: false,
+        isPending: false,
+        stockItems: [],
+        error: action.payload.error
+      };
+    case FETCH_SHIPPMENT_ERROR_MESSAGE:
+      return {
+        ...state,
+        isPendingForModal: false,
         stockItems: [],
         error: action.payload.error
       };
     case INSERT_STOCK_DATA:
       return {
         ...state,
-        insertStockDataList : action.payload.stockDataList
+        isInsertStockData : true
+      };
+    case CANCEL_INSERT_STOCK_DATA:
+      return {
+        ...state,
+        isInsertStockData : false
+      };
+    case SUCCESS_INSERT_STOCK_DATA:
+      return {
+        ...state,
+        isPending : false,
+        isInsertStockData : false
       };
     case SELECT_STOCK_LIST:
       return {
@@ -68,12 +102,8 @@ const stockTable = (state = initialState, action ) => {
     case SET_SHIPMENT_LIST:
       return {
         ...state,
+        isPendingForModal : false,
         selectedShipmentList: action.payload.shipmentList
-      };
-    case FRESH_INSERT_STOCK_DATALIST:
-      return {
-        ...state,
-        insertStockDataList: []
       };
     default:
       return state;

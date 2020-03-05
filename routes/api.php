@@ -34,7 +34,7 @@ Route::get('stock/{id}/{date}', function(Request $request, $id, $date) {
   $lastDate = new DateTime($date);
   $lastDate->modify('+1 month');
   $stocks = StockManagement::withTrashed()
-                              ->where([['stock_status', 1],['item_id', $id]])
+                              ->where([['stock_status', 1],['item_id', $id],['stock_count','>', 0]])
                               ->whereBetween('created_at',[$startDate, $lastDate])
                               ->get();
   return $stocks;
@@ -213,3 +213,12 @@ Route::get('record', function(Request $request) {
   $recordList = Record::all();
   return $recordList->toJson();
 });
+
+/**
+ * 保存記録を削除（一番最新記録を削除）
+ * @param int recordId
+ * @return result 
+ */
+Route::delete('record/{recordId}', function(Request $request, $recordId){
+  
+}); 

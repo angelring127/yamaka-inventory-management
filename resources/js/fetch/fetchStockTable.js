@@ -13,8 +13,8 @@ export const insertStockList = (navibarId, stockDataList) => {
       console.log(res);
       if (!res.error) {
         console.log('refresh');
+        dispatch(storeStockTable.successInsertStockData());
         dispatch(fetchNaviBar.selectNaviItem(navibarId));
-        dispatch(storeStockTable.freshInsertStockDataList());
       }
     }).catch(error =>{
       const isFail = '登録に失敗しました。';
@@ -31,15 +31,14 @@ export const insertStockList = (navibarId, stockDataList) => {
  */
 export const getShipmentList = (id, yearMonth) => {
   return dispatch => {
-    dispatch(storeStockTable.onPending());
+    dispatch(storeStockTable.onPendingForShippment());
     services.getShipmentList(id, yearMonth)
     .then(res => {
-      console.log(res);
       if (!res.error) {
         dispatch(storeStockTable.setShipmentList(res.data))
       }
     }).catch(error => {
-      dispatch(storeStockTable.fetchError(error));
+      dispatch(storeStockTable.fetchShippmentError(error));
     })
   }
 }
