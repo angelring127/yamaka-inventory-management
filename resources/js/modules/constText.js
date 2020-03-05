@@ -24,6 +24,12 @@
     messgae : '入力した内容を保存しますか？',
     title : '入力保存'    
   },
+  deleteRecordModal : {
+    exit: '終了',
+    function : '削除',
+    messgae : '記録を削除しますか？',
+    title : '記録削除'    
+  },
 };
 
 const constText = (state = initialState, action ) => {
