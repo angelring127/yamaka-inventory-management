@@ -9,6 +9,8 @@ class Item extends Model
 {
     
     use SoftDeletes;
+
+    protected $dates = ['deleted_at'];
     /**
      * get Items
      */
