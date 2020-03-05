@@ -8,9 +8,7 @@ const Navibar = ({ selectNaviItem, handlingInsert, selectRecordTable }) => {
   const [show, setShow] = useState(false);
   // modalHandling
   const handleClose = () => setShow(false);
-  const handleShow = () => {
-    setShow(true);
-  };
+  const handleShow = () =>  setShow(true);
 
   // 在庫入力
   const handleInsert = () => {

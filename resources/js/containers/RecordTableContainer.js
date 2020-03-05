@@ -7,12 +7,17 @@ import { useSelector, useDispatch } from 'react-redux';
 const RecordTableContainer = () => {
   const dispatch = useDispatch();
   const recordInfo = useSelector(state => state.record, []);
+
+  const handleDeleteRecord = (recordId) => {
+    dispatch(fetchRecord.deleteRecord(recordId));
+  };
   useEffect(() => {
     if (!recordInfo.pending) {
       dispatch(fetchRecord.getRecordList());
     }
   }, [])
-  return <RecordTable/>;
+
+  return <RecordTable handleDeleteRecord= {handleDeleteRecord}/>;
 };
 
 export default RecordTableContainer;

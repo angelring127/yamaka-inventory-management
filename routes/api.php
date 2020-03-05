@@ -220,5 +220,47 @@ Route::get('record', function(Request $request) {
  * @return result 
  */
 Route::delete('record/{recordId}', function(Request $request, $recordId){
-  
+  $record = Record::where('id',$recordId)->first();
+  // recordId를 가지고 있는 기록데이터가 있는지 확인
+  Log::info('$record : ' . $record);
+
+  if ($record != null) {
+    $stockList = StockManagement::withTrashed()->where('record_id',$recordId)->get();
+    foreach ($stockList as $stock) {
+      if ($stock->stock_status == 1) {
+        // 出荷を削除
+        if ( $stock->shipment_id != null) {
+          Log::info('$stock->shipment_id :' . $stock->shipment_id );
+          $importedStock = StockManagement::withTrashed()
+            ->where([['item_id', $stock->item_id], ['record_id', $stock->shipment_id]])
+            ->first();
+          
+          $importedStock->currentstock_count = $stock->stock_count;
+          $importedStock->restore();
+
+          Log::info('importedStock : ' . $importedStock);
+        }
+      } else if ($stock->stock_status == 2) {
+        // 製造を削除
+        // まさ出荷が残っている状況での
+        $shipmentStockList = StockManagement::withTrashed()
+          ->where([['item_id',$stock->item_id],['shipment_id', $recordId]])
+          ->get();
+        foreach ($shipmentStockList as $shipmentStock) {
+          $shipmentStock->shipment_id = null;
+          $shipmentStock->restore();
+        }
+      }
+
+      $stock->forceDelete();
+    }
+    $record->forceDelete();
+  }
+  // 
+  // $post->forceDelete(); 강제 삭제
+  // 제고가 많은경우
+  // 출하가 많은경우
+  // 
+  $recordList = Record::all();
+  return $recordList->toJson();
 }); 

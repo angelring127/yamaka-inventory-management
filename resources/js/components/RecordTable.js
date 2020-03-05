@@ -3,10 +3,11 @@
  * 保存記録リスト画面表示
  */
 
-import React from 'react';
+import React, {useState} from 'react';
 import { useSelector } from 'react-redux';
 
 import { Table, Container, Row, Col, Spinner, Modal, Button } from 'react-bootstrap';
+import CommonModal from './CommonModal';
 
 import '../app.css';
 
@@ -14,7 +15,7 @@ import '../app.css';
 /**
  * Record項目をテーブル項目変更
  */
-const setItems = (items, constText) => {
+const setItems = (items, constText, handleShow) => {
   const empty = (<tr><td colSpan="3">{constText.emptyErrorMsg}</td></tr>);
   if (typeof items !== 'undefined' && items !== null) {
     return items.length === 0 ? empty :
@@ -28,7 +29,7 @@ const setItems = (items, constText) => {
           </td>
           <td>
             {((items.length - 1) === index) ?
-              <Button variant="danger" >{constText.labelDelete}</Button>
+              <Button variant="danger" onClick= {e => handleShow(item.id)} >{constText.labelDelete}</Button>
               :
               <Button variant="danger" disabled>{constText.labelDelete}</Button>
             }
@@ -41,11 +42,25 @@ const setItems = (items, constText) => {
 /**
  * 在庫入力記録リスト表示
  */
-const RecordTable = () => {
+const RecordTable = ({handleDeleteRecord}) => {
+  // modal flag
+  const [show, setShow] = useState(false);
+  // modalHandling
+  const [selectedRecordId, setSelectedRecordId] = useState(null);
+  const handleClose = () => setShow(false);
+  const handleShow = (recordId) =>  {
+    setShow(true);
+    setSelectedRecordId(recordId);
+  };
+  const modalDeleteRecord = () => {
+    setShow(false);
+    handleDeleteRecord(selectedRecordId)
+  };
+  
   const constText = useSelector(state => state.constText, []);
   const recordInfo = useSelector(state => state.record, []);
 
-  const items = setItems(recordInfo.recordList, constText);
+  const items = setItems(recordInfo.recordList, constText, handleShow);
   return (<Container style={{ marginTop: "100px" }}>
     <Row>
       <h1>{constText.recordTableTitle}</h1>
@@ -64,6 +79,7 @@ const RecordTable = () => {
         </tbody>
       </Table>
     </Row>
+    <CommonModal show={show} handleClose={handleClose} context = {constText.deleteRecordModal} handler={modalDeleteRecord} />
   </Container>);
 };
 
