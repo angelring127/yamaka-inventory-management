@@ -18,16 +18,17 @@
   labelDelete : '削除',
   recordTableTitle : '在庫記録リスト',
   dateformat : 'yyyy年MM月',
+  exit: '終了',
   saveModal : {
     exit: '終了',
     function : '保存',
-    messgae : '入力した内容を保存しますか？',
+    message : '入力した内容を保存しますか？',
     title : '入力保存'    
   },
   deleteRecordModal : {
     exit: '終了',
     function : '削除',
-    messgae : '記録を削除しますか？',
+    message : '記録を削除しますか？',
     title : '記録削除'    
   },
 };
