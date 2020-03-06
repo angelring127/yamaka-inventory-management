@@ -7,12 +7,9 @@ import * as fetchNaviBar from '../fetch/fetchNaviBar';
 export const insertStockList = (navibarId, stockDataList) => {
   return dispatch => {
     dispatch(storeStockTable.onPending());
-    console.log(stockDataList);
     services.insertStockDataList(stockDataList)
     .then(res => {
-      console.log(res);
       if (!res.error) {
-        console.log('refresh');
         dispatch(storeStockTable.successInsertStockData());
         dispatch(fetchNaviBar.selectNaviItem(navibarId));
       }

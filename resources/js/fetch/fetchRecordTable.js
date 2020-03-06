@@ -11,7 +11,6 @@ export const getRecordList = () => {
         throw (res.error);
       }
       if (typeof res.data !== 'undefined' && res.data.length !== 0) {
-        console.log(res.data);
         dispatch(storeRecord.getRecordList(res.data));
       }
     })
@@ -31,7 +30,6 @@ export const deleteRecord = (recordId) => {
         throw (res.error);
       }
       if (typeof res.data !== 'undefined' && res.data.length !== 0) {
-        console.log(res.data);
         dispatch(storeRecord.getRecordList(res.data));
       } else if (res.data.length === 0) {
         dispatch(storeRecord.getRecordList([]));
