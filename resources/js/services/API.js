@@ -45,3 +45,14 @@ export const deleteRecords = (recordId) => {
 export const getShipmentList = (id, yearMonth) => {
   return axiosApi.get(stock + '/' + id + '/' + yearMonth);
 }
+
+// 在庫項目取得
+export const getStockItemList = () => {
+  return axiosApi.get(stock);
+}
+
+// 商品項目追加
+export const addStockItem = (data) => {
+  const jsonParam = JSON.stringify(data);
+  return axiosApi.post(stock + '/item', jsonParam);
+}

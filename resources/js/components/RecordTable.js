@@ -43,10 +43,10 @@ const setItems = (items, constText, handleShow) => {
  * 在庫入力記録リスト表示
  */
 const RecordTable = ({handleDeleteRecord}) => {
+  const [selectedRecordId, setSelectedRecordId] = useState(null);
   // modal flag
   const [show, setShow] = useState(false);
   // modalHandling
-  const [selectedRecordId, setSelectedRecordId] = useState(null);
   const handleClose = () => setShow(false);
   const handleShow = (recordId) =>  {
     setShow(true);
@@ -56,6 +56,7 @@ const RecordTable = ({handleDeleteRecord}) => {
     setShow(false);
     handleDeleteRecord(selectedRecordId)
   };
+
   
   const constText = useSelector(state => state.constText, []);
   const recordInfo = useSelector(state => state.record, []);

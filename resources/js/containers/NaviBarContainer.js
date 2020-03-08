@@ -20,8 +20,9 @@ const NaviBarContainer = () => {
     dispatch(setPage(0));
     dispatch(fetchNaviBar.selectNaviItem(id));
   };
-  const selectRecordTable = () => {
-    dispatch(setPage(1));
+  const selectSettings = e => {
+    const currentTarget = e.currentTarget;
+    dispatch(setPage(currentTarget.getAttribute('page')));
   }
   // 在庫入力保存
   const insertStockData = () => {dispatch(stockTable.insertStockData())};
@@ -30,7 +31,7 @@ const NaviBarContainer = () => {
     <Navibar
       selectNaviItem= {selectNaviItem} 
       handlingInsert={insertStockData} 
-      selectRecordTable={selectRecordTable}
+      selectSettings={selectSettings}
     />
   );
 }

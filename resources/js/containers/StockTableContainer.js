@@ -27,7 +27,7 @@ const StockTableContainer = () => {
   const insertStockData = (stockDataList) => {dispatch(fetchStockTable.insertStockList(naviBarInfo.currentNaviId, stockDataList))};
 
   // 在庫入力がない事をアラートで表示
-  const handleShowAlert = () => {dispatch(storeAlert.showAlert(constText.emptyStockErrorMsg))};
+  const handleShowAlert = () => {dispatch(storeAlert.showAlert(constText.emptyStockErrorMsg, constText.danger))};
   const handleCancelInsertStockData = () => {dispatch(storeStockTable.cancelInsertStockData())};
 
   // handlerを配列で整理

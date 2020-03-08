@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use App\StockManagement;
 use App\BigCategory;
+use App\Item;
 use App\MiddleCategory;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
@@ -74,6 +75,45 @@ Route::get('stock/{id}', function(Request $request, $id) {
     // Todo Error Handling
     return response('database is wrong',501);
   }
+});
+
+/**
+ * 在庫項目リストで出す。
+ */
+Route::get('stock', function() {
+  $bigcategories = BigCategory::all();
+  foreach ($bigcategories as $bigcategory) {
+    $bigcategory->middleCategories;
+  }
+  return $bigcategories->toJson();
+});
+
+Route::post('stock/item', function(Request $request){
+  if ($request->ajax() && $request->post()) {
+    $itemData = $request->all();
+    $validator = Validator::make($itemData,array(
+      'middle_category_id' => 'required',
+      'big_category_id' => 'required',
+      'name' => 'required'
+    ));
+    if ($validator->fails()) {
+      Log::info('insert error : '. $validator->errors());
+      return response()->json([
+          'error'    => true,
+          'messages' => $validator->errors(),
+      ], 422);
+    }
+    $item = new Item();
+    $item->big_category_id = $request->big_category_id;
+    $item->middle_category_id = $request->middle_category_id;
+    $item->name = $request->name;
+    $result = $item->save();
+
+    return response()->json($result, 200);
+  }
+  return response()->json([
+    'error'    => true,
+], 419);
 });
 
 /**
