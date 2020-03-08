@@ -5,6 +5,7 @@ import stockTable from './stockTable';
 import page from './page';
 import constText from './constText';
 import alert from './alert';
+import stockItem from './stockItem';
 
 const rootReducer = combineReducers({
   record,
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
   stockTable,
   page,
   constText,
-  alert
+  alert,
+  stockItem
 });
 
 export default rootReducer;
