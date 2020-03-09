@@ -13,6 +13,7 @@ const CANCEL_INSERT_STOCK_DATA = 'stockTable/CANCEL_INSERT_STOCK_DATA';
 const SELECT_STOCK_LIST = 'stockTable/SELECT_STOCK_LIST';
 const SET_SHIPMENT_LIST = 'stockTable/SET_SHIPMENT_LIST';
 const FRESH_INSERT_STOCK_DATALIST = 'stockTable/FRESH_INSERT_STOCK_DATALIST';
+const CHANGE_IS_EDIT = 'stockTable/CHANGE_IS_EDIT';
 
 
 
@@ -27,6 +28,7 @@ export const cancelInsertStockData = () => ({type: CANCEL_INSERT_STOCK_DATA});
 export const selectItem = (item) => ({ type: SELECT_STOCK_LIST, payload: {item}});
 export const setShipmentList = (shipmentList) => ({ type: SET_SHIPMENT_LIST, payload: {shipmentList}});
 export const freshInsertStockDataList = () => ({ type: FRESH_INSERT_STOCK_DATALIST});
+export const changeIsEdit = () => ({type: CHANGE_IS_EDIT});
 
 
   // 액션 생성
@@ -39,6 +41,8 @@ const initialState = {
   isInsertStockData: false,
   selectedItem: null,
   selectedShipmentList: null,
+  isEdit: false,
+
 };
 
 const stockTable = (state = initialState, action ) => {
@@ -104,6 +108,11 @@ const stockTable = (state = initialState, action ) => {
         ...state,
         isPendingForModal : false,
         selectedShipmentList: action.payload.shipmentList
+      };
+    case CHANGE_IS_EDIT:
+      return {
+        ...state,
+        isEdit: !state.isEdit
       };
     default:
       return state;

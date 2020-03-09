@@ -146,7 +146,11 @@ const StockTable = ({ selectItem, handler }) => {
       if (insertStockDataList.length > 0) {
         const param = insertStockDataList;
         setInsertStockDataList([]);
-        handler.insertStockData(param);
+        if (stockTable.isEdit) {
+          handler.editStockData(param);
+        } else {
+          handler.insertStockData(param);
+        }
       } else {
         handler.handleCancelInsertStockData();
         handler.handleShowAlert();

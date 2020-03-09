@@ -31,6 +31,12 @@ export const insertStockDataList = (data) => {
   return axiosApi.post(stock, jsonParam);
 }
 
+// 在庫入力修正
+export const editStockDataList = (data) => {
+  const jsonParam = JSON.stringify(data);
+  return axiosApi.post(stock + '/edit', jsonParam);
+}
+
 // 保存記録を呼び出す。
 export const getRecords = () => {
   return axiosApi.get(record);
