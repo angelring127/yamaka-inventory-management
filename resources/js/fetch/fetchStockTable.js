@@ -1,3 +1,8 @@
+/**
+ * fetchStockTable.js
+ * 在庫リストに関してAPI通信関連
+ */
+
 import * as services from '../services/API';
 import * as storeNaviBar from '../modules/navibar';
 import * as storeStockTable from '../modules/stockTable';
@@ -12,6 +17,23 @@ export const insertStockList = (navibarId, stockDataList) => {
       if (!res.error) {
         dispatch(storeStockTable.successInsertStockData());
         dispatch(fetchNaviBar.selectNaviItem(navibarId));
+      }
+    }).catch(error =>{
+      const isFail = '登録に失敗しました。';
+      dispatch(storeStockTable.fetchError(isFail));
+    })
+  }
+}
+
+export const editStockList = (navibarId, stockDataList) => {
+  return dispatch => {
+    dispatch(storeStockTable.onPending());
+    services.editStockDataList(stockDataList)
+    .then(res => {
+      if (!res.error) {
+        dispatch(storeStockTable.successInsertStockData());
+        dispatch(fetchNaviBar.selectNaviItem(navibarId));
+        dispatch(storeStockTable.changeIsEdit());
       }
     }).catch(error =>{
       const isFail = '登録に失敗しました。';

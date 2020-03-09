@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {Table, Container, Row, Col, Spinner, Modal, Button} from 'react-bootstrap';
 import 'react-day-picker/lib/style.css';
+import '../app.css';
 import { css } from "@emotion/core";
 // First way to import
 import { BounceLoader } from "react-spinners";
@@ -34,7 +35,7 @@ const isPending = (
  * テーブル内容を作成
  */
 const setTable = (stockTable, handlerInsertStock, handleShow, constText) => {
-  return stockTable.stockItems.map(middleCategory => {
+  const tableitems = stockTable.stockItems.map(middleCategory => {
     const items = middleCategory.items.map(item => {
       let stockCount = 0;
 
@@ -54,23 +55,55 @@ const setTable = (stockTable, handlerInsertStock, handleShow, constText) => {
         <td onClick={e => handleShow(item)} item={item.stocks} >{stockCount}</td>
       </tr>;
     });
-    return <Col xs={4} key={middleCategory.id}>
-      <h1>{middleCategory.name}</h1>
-      <Table responsive striped bordered hover>
-        <thead>
-          <tr>
-            <th>{constText.itemName}</th>
-            <th>{constText.shipment}</th>
-            <th>{constText.manufacture}</th>
-            <th>{constText.inventory}</th>
-          </tr>
-        </thead>
-        <tbody>
+    return (<tbody>
+          <tr><td colSpan='4' className="stock-table-head" ><b>{middleCategory.name}</b></td></tr>
          {(items.length !==0 ? items : <tr><td colSpan="4">{constText.emptyErrorMsg}</td></tr>)}
-        </tbody>
-      </Table>
-    </Col>
+        </tbody>)
   });
+
+  return (
+    <Row>
+      <Col xs={4} key={`1`}>
+        <Table responsive striped bordered hover>
+          <thead>
+            <tr>
+              <th>{constText.itemName}</th>
+              <th>{constText.shipment}</th>
+              <th>{constText.manufacture}</th>
+              <th>{constText.inventory}</th>
+            </tr>
+          </thead>
+            {tableitems.slice(0,5)}
+        </Table>
+      </Col>
+      <Col xs={4} key={`2`}>
+        <Table responsive striped bordered hover>
+          <thead>
+            <tr>
+              <th>{constText.itemName}</th>
+              <th>{constText.shipment}</th>
+              <th>{constText.manufacture}</th>
+              <th>{constText.inventory}</th>
+            </tr>
+          </thead>
+          {tableitems.slice(5,13)}
+        </Table>
+      </Col>
+      <Col xs={4} key={`3`}>
+        <Table responsive striped bordered hover>
+          <thead>
+            <tr>
+              <th>{constText.itemName}</th>
+              <th>{constText.shipment}</th>
+              <th>{constText.manufacture}</th>
+              <th>{constText.inventory}</th>
+            </tr>
+          </thead>
+          {tableitems.slice(13)}
+        </Table>
+      </Col>
+    </Row>
+  );
 }
 
 //在庫入力をリストに追加 
@@ -84,7 +117,7 @@ const insertData = (e, insertStockDataList) => {
   const checkCode = bigCategoryId + middleCategoryId + itemId + status;
   // 数字以外文字を入力する場合削除
   if(isNaN(Number(currentTarget.innerHTML))) {
-    currentTarget.innerHTML = currentTarget.innerHTML.replace(/\D/,'');
+    currentTarget.innerHTML = currentTarget.innerHTML.replace(/[^0-9.]/g, "");
   } else {
     const stockCount = Number(currentTarget.innerHTML);
     if (stockCount === 0) { 
@@ -146,7 +179,11 @@ const StockTable = ({ selectItem, handler }) => {
       if (insertStockDataList.length > 0) {
         const param = insertStockDataList;
         setInsertStockDataList([]);
-        handler.insertStockData(param);
+        if (stockTable.isEdit) {
+          handler.editStockData(param);
+        } else {
+          handler.insertStockData(param);
+        }
       } else {
         handler.handleCancelInsertStockData();
         handler.handleShowAlert();
@@ -164,9 +201,7 @@ const StockTable = ({ selectItem, handler }) => {
   return ((stockTable.isPending) ? isPending : 
     (
       <Container style={{marginTop: "100px"}} >
-        <Row>
-          { (stockTable.stockItems.length === 0) ?  <h1 style={{marginTop: "100px"}}>{stockTable.error}</h1> : tableItems }
-        </Row>
+          { (stockTable.stockItems.length === 0) ?  <Row><h1 style={{marginTop: "100px"}}>{stockTable.error}</h1></Row> : tableItems }
         <CalendarModal show={show} handleClose={handleClose} item = {stockTable.selectedItem}/>
       </Container>
     )

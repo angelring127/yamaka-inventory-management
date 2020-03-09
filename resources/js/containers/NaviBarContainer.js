@@ -26,12 +26,15 @@ const NaviBarContainer = () => {
   }
   // 在庫入力保存
   const insertStockData = () => {dispatch(stockTable.insertStockData())};
+  // 修正モード変更
+  const changeIsEdit = () => {dispatch(stockTable.changeIsEdit())};
 
   return (
     <Navibar
       selectNaviItem= {selectNaviItem} 
       handlingInsert={insertStockData} 
       selectSettings={selectSettings}
+      changeIsEdit={changeIsEdit}
     />
   );
 }

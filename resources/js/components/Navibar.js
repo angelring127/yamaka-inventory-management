@@ -3,7 +3,7 @@ import { ButtonToolbar, Button, Navbar, Nav, NavDropdown, Form, FormControl, Spi
 import CommonModal from './CommonModal';
 import { useSelector } from 'react-redux';
 
-const Navibar = ({ selectNaviItem, handlingInsert, selectSettings }) => {
+const Navibar = ({ selectNaviItem, handlingInsert, selectSettings, changeIsEdit }) => {
   // modal flag
   const [show, setShow] = useState(false);
   // modalHandling
@@ -22,8 +22,13 @@ const Navibar = ({ selectNaviItem, handlingInsert, selectSettings }) => {
   const naviBarInfo = useSelector(state => state.navibar, []);
   // page Info
   const pageInfo = useSelector(state => state.page, []);
+  // stockTable info
+  const stockTable = useSelector(state => state.stockTable, []);
 
   const saveBtn = (pageInfo.page === 0 ) ? (<Button variant="success" onClick={handleShow}>{constText.saveModal.function}</Button>) : null;
+
+  const editCheckbox = (pageInfo.page === 0 ) ? (<Form.Check className="mr-sm-2"　type='checkbox'　onChange={changeIsEdit}　checked={stockTable.isEdit}　label={`修正`}/>) : null;
+
 
   const naviItems = naviBarInfo.naviItems.map(item => {
     return <Nav.Link active={(item.id === naviBarInfo.currentNaviId)} key={item.id} onClick={e => selectNaviItem(item.id)}>{item.name}</Nav.Link>;
@@ -42,7 +47,10 @@ const Navibar = ({ selectNaviItem, handlingInsert, selectSettings }) => {
               <NavDropdown.Item onClick={selectSettings} page={2}>{constText.menuAdd}</NavDropdown.Item>
             </NavDropdown>
           </Nav>
-          {saveBtn}
+          <Form inline>
+            {editCheckbox}
+            {saveBtn}
+          </Form>
         </Navbar.Collapse>
       </Navbar>
       <CommonModal show={show} handleClose={handleClose} context = {constText.saveModal} handler={handleInsert} />

@@ -57,9 +57,9 @@ const CalendarModal = ({show, handleClose, item}) => {
 
   const onDayClick = (day, modifiers, e) => {
     if (modifiers.selected) {
-      const selectedItemStocks = stockTable.selectedItem.stocks.filter(stock => stock.created_at.includes(day.getFullYear() + '-' + ('00' + (day.getMonth() + 1)).slice(-2) + '-' + ('00' + (day.getDay() + 1)).slice(-2)));
+      const selectedItemStocks = stockTable.selectedItem.stocks.filter(stock => stock.created_at.includes(day.getFullYear() + '-' + ('00' + (day.getMonth() + 1)).slice(-2) + '-' + ('00' + day.getDate()).slice(-2)));
       handleComModalShow();
-      const strDate = day.getFullYear() + '年' + ('00' + (day.getMonth() + 1)).slice(-2) + '月' + ('00' + (day.getDay() + 1)).slice(-2) + '日';
+      const strDate = day.getFullYear() + '年' + ('00' + (day.getMonth() + 1)).slice(-2) + '月' + ('00' + day.getDate()).slice(-2) + '日';
       context.title = strDate;
       context.message = setTable(selectedItemStocks, constText);
       setContext(context);

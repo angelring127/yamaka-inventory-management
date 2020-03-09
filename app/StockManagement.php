@@ -12,5 +12,5 @@ class StockManagement extends Model
 
   protected $dates = ['deleted_at'];
 
-  protected $fillable = ['big_category_id','item_id','middle_category_id','stock_status','stock_count','record_id','shipment_id','currentstock_count'];
+  protected $fillable = ['big_category_id','item_id','middle_category_id','stock_status','stock_count','record_id','shipment_id','currentstock_count','is_edit'];
 }

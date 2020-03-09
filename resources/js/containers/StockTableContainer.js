@@ -26,6 +26,8 @@ const StockTableContainer = () => {
 
   const insertStockData = (stockDataList) => {dispatch(fetchStockTable.insertStockList(naviBarInfo.currentNaviId, stockDataList))};
 
+  const editStockData = (stockDataList) => {dispatch(fetchStockTable.editStockList(naviBarInfo.currentNaviId, stockDataList))};
+
   // 在庫入力がない事をアラートで表示
   const handleShowAlert = () => {dispatch(storeAlert.showAlert(constText.emptyStockErrorMsg, constText.danger))};
   const handleCancelInsertStockData = () => {dispatch(storeStockTable.cancelInsertStockData())};
@@ -35,6 +37,7 @@ const StockTableContainer = () => {
     insertStockData: insertStockData,
     handleShowAlert: handleShowAlert,
     handleCancelInsertStockData: handleCancelInsertStockData,
+    editStockData: editStockData,
   };
 
   return (
