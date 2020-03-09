@@ -27,6 +27,9 @@ const Navibar = ({ selectNaviItem, handlingInsert, selectSettings, changeIsEdit 
 
   const saveBtn = (pageInfo.page === 0 ) ? (<Button variant="success" onClick={handleShow}>{constText.saveModal.function}</Button>) : null;
 
+  const editCheckbox = (pageInfo.page === 0 ) ? (<Form.Check className="mr-sm-2"　type='checkbox'　onChange={changeIsEdit}　checked={stockTable.isEdit}　label={`修正`}/>) : null;
+
+
   const naviItems = naviBarInfo.naviItems.map(item => {
     return <Nav.Link active={(item.id === naviBarInfo.currentNaviId)} key={item.id} onClick={e => selectNaviItem(item.id)}>{item.name}</Nav.Link>;
   })
@@ -45,13 +48,7 @@ const Navibar = ({ selectNaviItem, handlingInsert, selectSettings, changeIsEdit 
             </NavDropdown>
           </Nav>
           <Form inline>
-            <Form.Check 
-              className="mr-sm-2"
-              type='checkbox'
-              onChange={changeIsEdit}
-              checked={stockTable.isEdit}
-              label={`修正`}
-            />
+            {editCheckbox}
             {saveBtn}
           </Form>
         </Navbar.Collapse>

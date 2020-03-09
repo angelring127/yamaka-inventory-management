@@ -5,3 +5,8 @@
 .record-table tbody > tr > td {
   text-align: center;
 }
+
+.stock-table-head {
+  text-align: center;
+  background-color: #ffc107;
+}

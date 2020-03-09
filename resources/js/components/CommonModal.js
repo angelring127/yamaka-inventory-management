@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {　Modal, Button, Row, Table } from 'react-bootstrap';
+import {　Modal, Button, Row, Table, Col } from 'react-bootstrap';
 
 const CommonModal = ({ show, handleClose, context, handler, centered }) => {
   const handlerBtn = (typeof handler === 'undefined' || handler === null) ? null :
@@ -11,7 +11,9 @@ const CommonModal = ({ show, handleClose, context, handler, centered }) => {
       </Modal.Header>
       <Modal.Body>
         <Row>
+          <Col>
           {context.message}
+          </Col>
         </Row>
       </Modal.Body>
       <Modal.Footer>

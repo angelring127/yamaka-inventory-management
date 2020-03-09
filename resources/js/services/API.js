@@ -1,7 +1,9 @@
 import axios from 'axios';
 
-const baseURL = 'http://localhost:3000/api/'; //本番環境
-// const baseURL = 'http://localhost:8000/'; //テスト環境
+// const baseURL = 'http://localhost:3000/api/'; //本番環境
+// const baseURL = 'http://192.168.11.65:3000/api/'; //本番環境
+
+const baseURL = 'http://localhost:8000/api'; //テスト環境
 const stock = 'stock';
 const navi = 'navi'; //navigationBar情報
 const record = 'record'; //保存した記録
@@ -13,7 +15,10 @@ const axiosApi = axios.create({
     'X-Requested-With': 'XMLHttpRequest',
     'X-CSRF-TOKEN': csrf[0].content
   },
-  responseType: 'json'
+  responseType: 'json',
+    xhrFields: {
+      withCredentials: true
+  }
 });
 
 export const getNavis = () => {
