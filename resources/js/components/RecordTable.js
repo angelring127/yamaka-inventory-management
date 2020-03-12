@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux';
 
 import { Table, Container, Row, Col, Spinner, Modal, Button } from 'react-bootstrap';
 import CommonModal from './CommonModal';
+import IsPending from './IsPending';
 
 import '../app.css';
 
@@ -62,26 +63,26 @@ const RecordTable = ({handleDeleteRecord}) => {
   const recordInfo = useSelector(state => state.record, []);
 
   const items = setItems(recordInfo.recordList, constText, handleShow);
-  return (<Container style={{ marginTop: "100px" }}>
-    <Row>
-      <h1>{constText.recordTableTitle}</h1>
-    </Row>
-    <Row>
-      <Table responsive striped bordered hover className="record-table">
-        <thead>
-          <tr>
-            <th>{constText.labelRecordNumber}</th>
-            <th>{constText.labelAtCreated}</th>
-            <th>{constText.labelEdit}</th>
-          </tr>
-        </thead>
-        <tbody>
-          {items}
-        </tbody>
-      </Table>
-    </Row>
-    <CommonModal show={show} handleClose={handleClose} context = {constText.deleteRecordModal} handler={modalDeleteRecord} />
-  </Container>);
+  return ((recordInfo.isPending) ? IsPending : <Container style={{ marginTop: "100px" }}>
+  <Row>
+    <h1>{constText.recordTableTitle}</h1>
+  </Row>
+  <Row>
+    <Table responsive striped bordered hover className="record-table">
+      <thead>
+        <tr>
+          <th>{constText.labelRecordNumber}</th>
+          <th>{constText.labelAtCreated}</th>
+          <th>{constText.labelEdit}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {items}
+      </tbody>
+    </Table>
+  </Row>
+  <CommonModal show={show} handleClose={handleClose} context = {constText.deleteRecordModal} handler={modalDeleteRecord} />
+</Container>);
 };
 
 export default RecordTable;

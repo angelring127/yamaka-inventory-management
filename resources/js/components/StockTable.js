@@ -7,29 +7,7 @@ import { css } from "@emotion/core";
 import { BounceLoader } from "react-spinners";
 import CalendarModal from './CalendarModal';
 import { useSelector } from 'react-redux';
-
-
-const override = css`
-  display: block;
-  margin: 0 auto;
-  border-color: red;
-`;
-
-/**
- * 待機中画面
- */
-const isPending = (
-  <Container style={{ marginTop: "500px" }} >
-    <div className="sweet-loading">
-      <BounceLoader
-        css={override}
-        size={150}
-        //size={"150px"} this also works
-        loading={true}
-      />
-    </div>
-  </Container>
-);
+import IsPending from './IsPending';
 
 /**
  * テーブル内容を作成
@@ -202,7 +180,7 @@ const StockTable = ({ selectItem, handler }) => {
   }, [stockTable.stockItems, insertStockDataList]);
 
 
-  return ((stockTable.isPending) ? isPending :
+  return ((stockTable.isPending) ? IsPending :
     (
       <Container style={{ marginTop: "100px" }} >
         {(stockTable.stockItems.length === 0) ? <Row><h1 style={{ marginTop: "100px" }}>{stockTable.error}</h1></Row> : tableItems}
