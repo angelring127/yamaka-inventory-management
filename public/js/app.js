@@ -105238,6 +105238,65 @@ var CommonModal = function CommonModal(_ref) {
 
 /***/ }),
 
+/***/ "./resources/js/components/IsPending.js":
+/*!**********************************************!*\
+  !*** ./resources/js/components/IsPending.js ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/index.js");
+/* harmony import */ var react_day_picker_lib_style_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-day-picker/lib/style.css */ "./node_modules/react-day-picker/lib/style.css");
+/* harmony import */ var react_day_picker_lib_style_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_day_picker_lib_style_css__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _app_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../app.css */ "./resources/js/app.css");
+/* harmony import */ var _app_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_app_css__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _emotion_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @emotion/core */ "./node_modules/@emotion/core/dist/core.browser.esm.js");
+/* harmony import */ var react_spinners__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-spinners */ "./node_modules/react-spinners/index.js");
+/* harmony import */ var react_spinners__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_spinners__WEBPACK_IMPORTED_MODULE_5__);
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n  display: block;\n  margin: 0 auto;\n  border-color: red;\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+
+
+
+ // First way to import
+
+
+var override = Object(_emotion_core__WEBPACK_IMPORTED_MODULE_4__["css"])(_templateObject());
+/**
+ * 待機中画面
+ */
+
+var IsPending = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Container"], {
+  style: {
+    marginTop: "500px"
+  }
+}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  className: "sweet-loading"
+}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_spinners__WEBPACK_IMPORTED_MODULE_5__["BounceLoader"], {
+  css: override,
+  size: 150 //size={"150px"} this also works
+  ,
+  loading: true
+})));
+/* harmony default export */ __webpack_exports__["default"] = (IsPending);
+
+/***/ }),
+
 /***/ "./resources/js/components/Navibar.js":
 /*!********************************************!*\
   !*** ./resources/js/components/Navibar.js ***!
@@ -105380,8 +105439,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/index.js");
 /* harmony import */ var _CommonModal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./CommonModal */ "./resources/js/components/CommonModal.js");
-/* harmony import */ var _app_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../app.css */ "./resources/js/app.css");
-/* harmony import */ var _app_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_app_css__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _IsPending__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./IsPending */ "./resources/js/components/IsPending.js");
+/* harmony import */ var _app_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../app.css */ "./resources/js/app.css");
+/* harmony import */ var _app_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_app_css__WEBPACK_IMPORTED_MODULE_5__);
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
@@ -105394,6 +105454,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
  * RecordTable.js
  * 保存記録リスト画面表示
  */
+
 
 
 
@@ -105467,7 +105528,7 @@ var RecordTable = function RecordTable(_ref) {
     return state.record;
   }, []);
   var items = setItems(recordInfo.recordList, constText, handleShow);
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Container"], {
+  return recordInfo.isPending ? _IsPending__WEBPACK_IMPORTED_MODULE_4__["default"] : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Container"], {
     style: {
       marginTop: "100px"
     }
@@ -105619,6 +105680,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_spinners__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_spinners__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _CalendarModal__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./CalendarModal */ "./resources/js/components/CalendarModal.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _IsPending__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./IsPending */ "./resources/js/components/IsPending.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
@@ -105626,18 +105688,6 @@ function _nonIterableRest() { throw new TypeError("Invalid attempt to destructur
 function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  display: block;\n  margin: 0 auto;\n  border-color: red;\n"]);
-
-  _templateObject = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 
 
@@ -105648,23 +105698,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var override = Object(_emotion_core__WEBPACK_IMPORTED_MODULE_4__["css"])(_templateObject());
-/**
- * 待機中画面
- */
 
-var isPending = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Container"], {
-  style: {
-    marginTop: "500px"
-  }
-}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-  className: "sweet-loading"
-}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_spinners__WEBPACK_IMPORTED_MODULE_5__["BounceLoader"], {
-  css: override,
-  size: 150 //size={"150px"} this also works
-  ,
-  loading: true
-})));
 /**
  * テーブル内容を作成
  */
@@ -105864,7 +105898,7 @@ var StockTable = function StockTable(_ref) {
       setTableItems(setTable(stockTable, handlerInsertStock, handleShow, constText));
     }
   }, [stockTable.stockItems, insertStockDataList]);
-  return stockTable.isPending ? isPending : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Container"], {
+  return stockTable.isPending ? _IsPending__WEBPACK_IMPORTED_MODULE_8__["default"] : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Container"], {
     style: {
       marginTop: "100px"
     }
