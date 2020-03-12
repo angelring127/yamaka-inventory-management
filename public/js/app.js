@@ -107231,7 +107231,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 
-var baseURL = 'http://localhost:3000/api/'; //本番環境
+var baseURL = 'http://yamaka.inventory.com//api/'; //本番環境
 // const baseURL = 'http://192.168.11.65:3000/api/'; //本番環境
 // const baseURL = 'http://localhost:8000/api'; //テスト環境
 
