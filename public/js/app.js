@@ -104781,8 +104781,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/index.js");
 /* harmony import */ var _CommonModal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./CommonModal */ "./resources/js/components/CommonModal.js");
-/* harmony import */ var _app_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../app.css */ "./resources/js/app.css");
-/* harmony import */ var _app_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_app_css__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _IsPending__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./IsPending */ "./resources/js/components/IsPending.js");
+/* harmony import */ var _app_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../app.css */ "./resources/js/app.css");
+/* harmony import */ var _app_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_app_css__WEBPACK_IMPORTED_MODULE_5__);
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
@@ -104795,6 +104796,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
  * AddItem.js
  * 在庫項目追加画面
  */
+
 
 
 
@@ -104924,7 +104926,7 @@ var AddItem = function AddItem(_ref) {
     setAddItemInfo(addItemInfo);
   };
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Container"], {
+  return stockItem.isPending ? _IsPending__WEBPACK_IMPORTED_MODULE_4__["default"] : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Container"], {
     style: {
       marginTop: "100px"
     }
@@ -106902,7 +106904,7 @@ var fetchError = function fetchError(error) {
   };
 };
 var initialState = {
-  pending: false,
+  isPending: false,
   recordList: []
 };
 
@@ -106913,18 +106915,18 @@ var record = function record() {
   switch (action.type) {
     case FETCH_RECORD_PENDING:
       return _objectSpread({}, state, {
-        pending: true
+        isPending: true
       });
 
     case GET_RECORD_LIST:
       return _objectSpread({}, state, {
-        pending: false,
+        isPending: false,
         recordList: action.payload.recordList
       });
 
     case FETCH_ERROR_MESSAGE:
       return _objectSpread({}, state, {
-        pending: false,
+        isPending: false,
         error: action.error
       });
 
@@ -106990,7 +106992,7 @@ var fetchError = function fetchError(error) {
   };
 };
 var initialState = {
-  pending: false,
+  isPending: false,
   stockItemList: [],
   addSuccess: false
 };
@@ -107002,24 +107004,24 @@ var record = function record() {
   switch (action.type) {
     case FETCH_PENDING:
       return _objectSpread({}, state, {
-        pending: true
+        isPending: true
       });
 
     case GET_STOCK_ITEM_LIST:
       return _objectSpread({}, state, {
-        pending: false,
+        isPending: false,
         stockItemList: action.payload.stockItemList
       });
 
     case FETCH_ERROR_MESSAGE:
       return _objectSpread({}, state, {
-        pending: false,
+        isPending: false,
         error: action.error
       });
 
     case ADD_SUCCESS:
       return _objectSpread({}, state, {
-        pending: false,
+        isPending: false,
         addSuccess: true
       });
 
