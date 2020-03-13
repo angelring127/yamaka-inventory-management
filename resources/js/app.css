@@ -10,3 +10,18 @@
   text-align: center;
   background-color: #ffc107;
 }
+
+.stock-red {
+  background-color: red;
+  color: antiquewhite;
+}
+
+.stock-yellow {
+  background-color: yellow;
+  color: black;
+}
+
+.stock-purple {
+  background-color: purple;
+  color: antiquewhite;
+}

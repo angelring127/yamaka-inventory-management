@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux';
 
 import { Table, Container, Row, Form, Col, Modal, Button, Card } from 'react-bootstrap';
 import CommonModal from './CommonModal';
+import IsPending from './IsPending';
 
 import '../app.css';
 
@@ -91,7 +92,7 @@ const AddItem = ({ handleAddItem }) => {
     setAddItemInfo(addItemInfo);
   }
 
-  return (<Container style={{ marginTop: "100px" }}>
+  return ((stockItem.isPending) ? IsPending : <Container style={{ marginTop: "100px" }}>
     <Row md="auto">
       <Col >
         <Card>

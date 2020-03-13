@@ -16,7 +16,7 @@ export const fetchError = (error) => ({ type: FETCH_ERROR_MESSAGE, payload: {err
 
 
 const initialState = {
-  pending : false,
+  isPending : false,
   stockItemList: [],
   addSuccess: false
 };
@@ -26,24 +26,24 @@ const record = (state = initialState, action ) => {
     case FETCH_PENDING:
       return {
         ...state,
-        pending : true
+        isPending : true
       }
     case GET_STOCK_ITEM_LIST:
       return {
         ...state,
-        pending: false,
+        isPending: false,
         stockItemList : action.payload.stockItemList
       };
     case FETCH_ERROR_MESSAGE:
       return {
         ...state,
-        pending: false,
+        isPending: false,
         error: action.error
       }
     case ADD_SUCCESS:
       return {
         ...state,
-        pending: false,
+        isPending: false,
         addSuccess: true,
       }
     default:
