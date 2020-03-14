@@ -1,4 +1,5 @@
 /**
+ * modules/navibar.js
  * ナビゲーションバー用のredux modules
  */
 

@@ -1,3 +1,8 @@
+/**
+ * AlertContainer.js
+ * アラートの動作を定義する
+ */
+
 import React, { useEffect } from 'react';
 import CommonAlert from '../components/CommonAlert';
 import * as fetchNaviBar from '../fetch/fetchNaviBar';

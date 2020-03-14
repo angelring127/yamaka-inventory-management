@@ -1,3 +1,7 @@
+/**
+ * StockTableContainer.js
+ * 
+ */
 import React, { useEffect } from 'react';
 import StockTable from '../components/StockTable';
 import * as fetchNaviBar from '../fetch/fetchNaviBar';

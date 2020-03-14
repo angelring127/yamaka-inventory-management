@@ -1,3 +1,7 @@
+/**
+ * CommonModal.js
+ * 一般的のモダール
+ */
 import React, { useState, useEffect } from 'react';
 import {　Modal, Button, Row, Table, Col } from 'react-bootstrap';
 

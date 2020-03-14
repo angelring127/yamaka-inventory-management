@@ -1,3 +1,7 @@
+/**
+ * Navibar.js
+ * ナビゲーションバー画面表示
+ */
 import React, { useState, useEffect } from 'react';
 import { ButtonToolbar, Button, Navbar, Nav, NavDropdown, Form, FormControl, Spinner, Alert } from 'react-bootstrap';
 import CommonModal from './CommonModal';

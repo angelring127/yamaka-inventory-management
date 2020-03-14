@@ -1,4 +1,5 @@
 /**
+ * modules/stockItem.js
  * 在庫登録の為 redux modules
  */
 

@@ -1,3 +1,7 @@
+/**
+ * CalendarModal.js
+ * 在庫の状態をカレンダーで表示モダール
+ */
 import React, {useState, useEffect} from 'react';
 import {Row, Modal, Button, Col, Table} from 'react-bootstrap';
 import DayPicker from 'react-day-picker';

@@ -1,3 +1,7 @@
+/**
+ * NaviBarContainer.js
+ * 
+ */
 import React, { useEffect } from 'react';
 import Navibar from '../components/Navibar';
 import * as fetchNaviBar from '../fetch/fetchNaviBar';
