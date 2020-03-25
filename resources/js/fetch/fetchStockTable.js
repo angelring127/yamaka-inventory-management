@@ -4,7 +4,6 @@
  */
 
 import * as services from '../services/API';
-import * as storeNaviBar from '../modules/navibar';
 import * as storeStockTable from '../modules/stockTable';
 import * as fetchNaviBar from '../fetch/fetchNaviBar';
 

@@ -1,3 +1,7 @@
+/**
+ * RecordTableContainer.js
+ * 
+ */
 import React, { useEffect } from 'react';
 import RecordTable from '../components/RecordTable';
 import * as fetchRecord from '../fetch/fetchRecordTable';

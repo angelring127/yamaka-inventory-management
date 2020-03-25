@@ -1,6 +1,7 @@
 
 /**
  * アラート用のmodules
+ * alert.js
  */
 
 const SHOW_ALERT = 'alert/SHOW_ALERT';

@@ -1,4 +1,5 @@
 /**
+ * modules/reocrd.js
  * 在庫保存記録用の redux modules
  */
 

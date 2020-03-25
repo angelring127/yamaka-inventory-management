@@ -1,3 +1,6 @@
+/**
+ * API.js
+ */
 import axios from 'axios';
 
 const baseURL = 'http://yamaka-inventory.com//api/'; //本番環境

@@ -1,4 +1,5 @@
 /**
+ * modules/stockTable.js
  * 在庫画面用の　redux modules
  */
 const FETCH_STOCK_TABLE_SUCESS = 'stockTable/FETCH_SUCESS';

@@ -1,3 +1,8 @@
+/**
+ * fetchRecordTable.js
+ * レコードAPIからデーター取得ㄴ
+ */
+
 import * as services from '../services/API';
 import * as storeRecord from '../modules/record';
 
@@ -10,7 +15,7 @@ export const getRecordList = () => {
       if (res.error) {
         throw (res.error);
       }
-      if (typeof res.data !== 'undefined' && res.data.length !== 0) {
+      if (typeof res.data !== 'undefined') {
         dispatch(storeRecord.getRecordList(res.data));
       }
     })

@@ -1,3 +1,6 @@
+/**
+ * modules/index.js
+ */
 import { combineReducers } from 'redux';
 import record from './record';
 import navibar from './navibar';

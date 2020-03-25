@@ -40,8 +40,8 @@ const AddItem = ({ handleAddItem }) => {
   const [addBtn, showAddBtn] = useState(null);
 
   //　bigCategoryをプルダウンItemに作成
-  const bigCategoryOption = (stockItem.stockItemList.length > 0) ?
-    stockItem.stockItemList.map(item => <option key={item.id} value={item.id}>{item.name}</option>)
+  const bigCategoryOption = (stockItem.stockItemList.length > 0) 
+    ? stockItem.stockItemList.map(item => <option key={item.id} value={item.id}>{item.name}</option>)
     : null;
 
   const handleAdd = () => {
@@ -69,6 +69,7 @@ const AddItem = ({ handleAddItem }) => {
       setInputItemName(setInputItem(constText, handleInputItem, constText.emptyItemNameErrorMsg));
     } else {
       setInputItemName(null);
+      showAddBtn(null);
       addItemInfo.middle_category_id = null;
     }
     setAddItemInfo(addItemInfo);

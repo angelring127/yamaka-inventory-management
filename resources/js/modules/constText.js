@@ -1,5 +1,6 @@
 /**
  * 固定文言
+ * constText.js
  */
 
   const initialState = {

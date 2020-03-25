@@ -1,3 +1,7 @@
+/**
+ * IsPending.js
+ * 待機画面表示
+ */
 import React, { useState, useEffect } from 'react';
 import { Table, Container, Row, Col, Spinner, Modal, Button } from 'react-bootstrap';
 import 'react-day-picker/lib/style.css';

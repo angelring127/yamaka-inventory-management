@@ -1,3 +1,7 @@
+/**
+ * CommonAlert.js
+ * 一般的に成功失敗に関して表示アラート画面
+ */
 import React, { useState, useEffect } from 'react';
 import { Alert } from 'react-bootstrap';
 import { useSelector } from 'react-redux';

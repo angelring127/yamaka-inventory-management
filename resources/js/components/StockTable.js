@@ -1,3 +1,8 @@
+/**
+ * StockTable.js
+ * 在庫管理画面
+ */
+
 import React, { useState, useEffect } from 'react';
 import { Table, Container, Row, Col, Spinner, Modal, Button } from 'react-bootstrap';
 import 'react-day-picker/lib/style.css';
@@ -17,27 +22,56 @@ const setTable = (stockTable, handlerInsertStock, handleShow, constText) => {
     const items = middleCategory.items.map(item => {
       let oldStockDate = null;
       let stockCount = 0;
+      let className = '';
 
       // 在庫の計算
       item.stocks.map(stock => {
-        oldStockDate = stock.created_at;
         if (stock.stock_status === 1) {
           stockCount -= stock.stock_count;
         } else {
           stockCount += stock.currentstock_count;
+          const createdAt = new Date(stock.created_at);
+          if ( oldStockDate === null || oldStockDate > createdAt) {
+            oldStockDate = createdAt;
+          }
         }
         return stock;
       });
 
-      console.log(new Date(oldStockDate));
+      if (oldStockDate !== null) {
+        const currentDate = new Date();
+        // 一番古い在庫の日付で背景色の変更
+        const intervalTime = parseInt((currentDate - oldStockDate) / (1000 * 3600 * 24));
+        // 20日：黄色
+        // 30日：赤色
+        // 60日：紫色
+        switch (intervalTime) {
+          case 2:
+            className = 'stock-yellow';
+            break;
+          case 3:
+          case 4:
+          case 5:
+            className = 'stock-red';
+            break;
+          case 6:
+          case 7:
+          case 8:
+          case 9:
+          case 10:
+            className = 'stock-purple';
+            break;
+        }
+      }
+
       return <tr key={item.id} id={item.id} big_category_id={item.big_category_id} middle_category_id={item.middle_category_id}>
-        <td>{item.name}</td>
+        <td className={className}>{item.name}</td>
         <td contentEditable="true" item_id={item.id} big_category_id={item.big_category_id} middle_category_id={item.middle_category_id} suppressContentEditableWarning={true} name="export" onInput={handlerInsertStock} ></td>
         <td contentEditable="true" item_id={item.id} big_category_id={item.big_category_id} middle_category_id={item.middle_category_id} suppressContentEditableWarning={true} name="import" onInput={handlerInsertStock} ></td>
         <td onClick={e => handleShow(item)} item={item.stocks} >{stockCount}</td>
       </tr>;
     });
-    return (<tbody>
+    return (<tbody key={middleCategory.id}>
       <tr><td colSpan='4' className="stock-table-head" ><b>{middleCategory.name}</b></td></tr>
       {(items.length !== 0 ? items : <tr><td colSpan="4">{constText.emptyErrorMsg}</td></tr>)}
     </tbody>)

@@ -1,3 +1,7 @@
+/**
+ * ShipmentListView.js
+ * CalendarModalで出荷リスト表示画面
+ */
 import React, {useState, useEffect} from 'react';
 import {Form,Row, Col, Button, Table, InputGroup, Container} from 'react-bootstrap';
 import DatePicker, { registerLocale, setDefaultLocale } from 'react-datepicker';

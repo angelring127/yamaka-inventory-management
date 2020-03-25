@@ -1,6 +1,6 @@
 /**
  * 在庫項目を追加するContainer
- * AddItemContainer
+ * AddItemContainer.js
  */
 
 import React, { useEffect } from 'react';

@@ -1,4 +1,5 @@
 /**
+ * modules/page.js
  * 画面ページ用の　redux modules
  */
 

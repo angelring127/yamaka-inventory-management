@@ -1,3 +1,7 @@
+/**
+ * fetchhNaviBar.js
+ * ナビゲーションバーAPIからデーター取得
+ */
 import * as services from '../services/API';
 import * as storeNaviBar from '../modules/navibar';
 import * as storeStockTable from '../modules/stockTable';

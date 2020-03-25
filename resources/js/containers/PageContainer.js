@@ -1,3 +1,6 @@
+/**
+ * PageContainer.js
+ */
 import React from 'react';
 import RecordTableContainer from './RecordTableContainer';
 import StockTableContainer from './StockTableContainer';
