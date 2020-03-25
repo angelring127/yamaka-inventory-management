@@ -4915,7 +4915,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, ".record-table thead > tr > th {\n  text-align: center;\n}\n\n.record-table tbody > tr > td {\n  text-align: center;\n}\n\n.stock-table-head {\n  text-align: center;\n  background-color: #ffc107;\n}", ""]);
+exports.push([module.i, ".record-table thead > tr > th {\n  text-align: center;\n}\n\n.record-table tbody > tr > td {\n  text-align: center;\n}\n\n.stock-table-head {\n  text-align: center;\n  background-color: #ffc107;\n}\n\n.stock-red {\n  background-color: red;\n  color: antiquewhite;\n}\n\n.stock-yellow {\n  background-color: yellow;\n  color: black;\n}\n\n.stock-purple {\n  background-color: purple;\n  color: antiquewhite;\n}", ""]);
 
 // exports
 
@@ -104898,6 +104898,7 @@ var AddItem = function AddItem(_ref) {
       setInputItemName(setInputItem(constText, handleInputItem, constText.emptyItemNameErrorMsg));
     } else {
       setInputItemName(null);
+      showAddBtn(null);
       addItemInfo.middle_category_id = null;
     }
 
@@ -105021,6 +105022,10 @@ function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) ||
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
+/**
+ * CalendarModal.js
+ * 在庫の状態をカレンダーで表示モダール
+ */
 
 
 
@@ -105172,6 +105177,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/index.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/**
+ * CommonAlert.js
+ * 一般的に成功失敗に関して表示アラート画面
+ */
 
 
 
@@ -105211,6 +105220,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/index.js");
+/**
+ * CommonModal.js
+ * 一般的のモダール
+ */
 
 
 
@@ -105271,6 +105284,10 @@ function _templateObject() {
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
+/**
+ * IsPending.js
+ * 待機画面表示
+ */
 
 
 
@@ -105321,6 +105338,10 @@ function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) ||
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
+/**
+ * Navibar.js
+ * ナビゲーションバー画面表示
+ */
 
 
 
@@ -105579,6 +105600,10 @@ function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) ||
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
+/**
+ * ShipmentListView.js
+ * CalendarModalで出荷リスト表示画面
+ */
 
 
 
@@ -105691,6 +105716,10 @@ function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) ||
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
+/**
+ * StockTable.js
+ * 在庫管理画面
+ */
 
 
 
@@ -105709,26 +105738,60 @@ var setTable = function setTable(stockTable, handlerInsertStock, handleShow, con
   var tableitems = stockTable.stockItems.map(function (middleCategory) {
     var items = middleCategory.items.map(function (item) {
       var oldStockDate = null;
-      var stockCount = 0; // 在庫の計算
+      var stockCount = 0;
+      var className = ''; // 在庫の計算
 
       item.stocks.map(function (stock) {
-        oldStockDate = stock.created_at;
-
         if (stock.stock_status === 1) {
           stockCount -= stock.stock_count;
         } else {
           stockCount += stock.currentstock_count;
+          var createdAt = new Date(stock.created_at);
+
+          if (oldStockDate === null || oldStockDate > createdAt) {
+            oldStockDate = createdAt;
+          }
         }
 
         return stock;
       });
-      console.log(new Date(oldStockDate));
+
+      if (oldStockDate !== null) {
+        var currentDate = new Date(); // 一番古い在庫の日付で背景色の変更
+
+        var intervalTime = parseInt((currentDate - oldStockDate) / (1000 * 3600 * 24)); // 20日：黄色
+        // 30日：赤色
+        // 60日：紫色
+
+        switch (intervalTime) {
+          case 2:
+            className = 'stock-yellow';
+            break;
+
+          case 3:
+          case 4:
+          case 5:
+            className = 'stock-red';
+            break;
+
+          case 6:
+          case 7:
+          case 8:
+          case 9:
+          case 10:
+            className = 'stock-purple';
+            break;
+        }
+      }
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
         key: item.id,
         id: item.id,
         big_category_id: item.big_category_id,
         middle_category_id: item.middle_category_id
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, item.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+        className: className
+      }, item.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
         contentEditable: "true",
         item_id: item.id,
         big_category_id: item.big_category_id,
@@ -105751,7 +105814,9 @@ var setTable = function setTable(stockTable, handlerInsertStock, handleShow, con
         item: item.stocks
       }, stockCount));
     });
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", {
+      key: middleCategory.id
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
       colSpan: "4",
       className: "stock-table-head"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, middleCategory.name))), items.length !== 0 ? items : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
@@ -105935,7 +106000,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /**
  * 在庫項目を追加するContainer
- * AddItemContainer
+ * AddItemContainer.js
  */
 
 
@@ -105981,6 +106046,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _fetch_fetchNaviBar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../fetch/fetchNaviBar */ "./resources/js/fetch/fetchNaviBar.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _modules_alert__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../modules/alert */ "./resources/js/modules/alert.js");
+/**
+ * AlertContainer.js
+ * アラートの動作を定義する
+ */
 
 
 
@@ -106021,6 +106090,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_stockTable__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../modules/stockTable */ "./resources/js/modules/stockTable.js");
 /* harmony import */ var _modules_page__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../modules/page */ "./resources/js/modules/page.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/**
+ * NaviBarContainer.js
+ * 
+ */
 
 
 
@@ -106083,6 +106156,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _StockTableContainer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./StockTableContainer */ "./resources/js/containers/StockTableContainer.js");
 /* harmony import */ var _AddItemContainer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./AddItemContainer */ "./resources/js/containers/AddItemContainer.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/**
+ * PageContainer.js
+ */
 
 
 
@@ -106116,6 +106192,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_RecordTable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/RecordTable */ "./resources/js/components/RecordTable.js");
 /* harmony import */ var _fetch_fetchRecordTable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../fetch/fetchRecordTable */ "./resources/js/fetch/fetchRecordTable.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/**
+ * RecordTableContainer.js
+ * 
+ */
 
 
 
@@ -106162,6 +106242,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_stockTable__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../modules/stockTable */ "./resources/js/modules/stockTable.js");
 /* harmony import */ var _modules_alert__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../modules/alert */ "./resources/js/modules/alert.js");
 /* harmony import */ var _fetch_fetchStockTable__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../fetch/fetchStockTable */ "./resources/js/fetch/fetchStockTable.js");
+/**
+ * StockTableContainer.js
+ * 
+ */
 
 
 
@@ -106237,6 +106321,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_API__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../services/API */ "./resources/js/services/API.js");
 /* harmony import */ var _modules_navibar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../modules/navibar */ "./resources/js/modules/navibar.js");
 /* harmony import */ var _modules_stockTable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../modules/stockTable */ "./resources/js/modules/stockTable.js");
+/**
+ * fetchhNaviBar.js
+ * ナビゲーションバーAPIからデーター取得
+ */
 
 
 
@@ -106301,6 +106389,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteRecord", function() { return deleteRecord; });
 /* harmony import */ var _services_API__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../services/API */ "./resources/js/services/API.js");
 /* harmony import */ var _modules_record__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../modules/record */ "./resources/js/modules/record.js");
+/**
+ * fetchRecordTable.js
+ * レコードAPIからデーター取得ㄴ
+ */
 
  //　保存記録リストを持つ
 
@@ -106312,7 +106404,7 @@ var getRecordList = function getRecordList() {
         throw res.error;
       }
 
-      if (typeof res.data !== 'undefined' && res.data.length !== 0) {
+      if (typeof res.data !== 'undefined') {
         dispatch(_modules_record__WEBPACK_IMPORTED_MODULE_1__["getRecordList"](res.data));
       }
     })["catch"](function (error) {
@@ -106414,9 +106506,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "editStockList", function() { return editStockList; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getShipmentList", function() { return getShipmentList; });
 /* harmony import */ var _services_API__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../services/API */ "./resources/js/services/API.js");
-/* harmony import */ var _modules_navibar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../modules/navibar */ "./resources/js/modules/navibar.js");
-/* harmony import */ var _modules_stockTable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../modules/stockTable */ "./resources/js/modules/stockTable.js");
-/* harmony import */ var _fetch_fetchNaviBar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../fetch/fetchNaviBar */ "./resources/js/fetch/fetchNaviBar.js");
+/* harmony import */ var _modules_stockTable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../modules/stockTable */ "./resources/js/modules/stockTable.js");
+/* harmony import */ var _fetch_fetchNaviBar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../fetch/fetchNaviBar */ "./resources/js/fetch/fetchNaviBar.js");
 /**
  * fetchStockTable.js
  * 在庫リストに関してAPI通信関連
@@ -106424,33 +106515,32 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 var insertStockList = function insertStockList(navibarId, stockDataList) {
   return function (dispatch) {
-    dispatch(_modules_stockTable__WEBPACK_IMPORTED_MODULE_2__["onPending"]());
+    dispatch(_modules_stockTable__WEBPACK_IMPORTED_MODULE_1__["onPending"]());
     _services_API__WEBPACK_IMPORTED_MODULE_0__["insertStockDataList"](stockDataList).then(function (res) {
       if (!res.error) {
-        dispatch(_modules_stockTable__WEBPACK_IMPORTED_MODULE_2__["successInsertStockData"]());
-        dispatch(_fetch_fetchNaviBar__WEBPACK_IMPORTED_MODULE_3__["selectNaviItem"](navibarId));
+        dispatch(_modules_stockTable__WEBPACK_IMPORTED_MODULE_1__["successInsertStockData"]());
+        dispatch(_fetch_fetchNaviBar__WEBPACK_IMPORTED_MODULE_2__["selectNaviItem"](navibarId));
       }
     })["catch"](function (error) {
       var isFail = '登録に失敗しました。';
-      dispatch(_modules_stockTable__WEBPACK_IMPORTED_MODULE_2__["fetchError"](isFail));
+      dispatch(_modules_stockTable__WEBPACK_IMPORTED_MODULE_1__["fetchError"](isFail));
     });
   };
 };
 var editStockList = function editStockList(navibarId, stockDataList) {
   return function (dispatch) {
-    dispatch(_modules_stockTable__WEBPACK_IMPORTED_MODULE_2__["onPending"]());
+    dispatch(_modules_stockTable__WEBPACK_IMPORTED_MODULE_1__["onPending"]());
     _services_API__WEBPACK_IMPORTED_MODULE_0__["editStockDataList"](stockDataList).then(function (res) {
       if (!res.error) {
-        dispatch(_modules_stockTable__WEBPACK_IMPORTED_MODULE_2__["successInsertStockData"]());
-        dispatch(_fetch_fetchNaviBar__WEBPACK_IMPORTED_MODULE_3__["selectNaviItem"](navibarId));
-        dispatch(_modules_stockTable__WEBPACK_IMPORTED_MODULE_2__["changeIsEdit"]());
+        dispatch(_modules_stockTable__WEBPACK_IMPORTED_MODULE_1__["successInsertStockData"]());
+        dispatch(_fetch_fetchNaviBar__WEBPACK_IMPORTED_MODULE_2__["selectNaviItem"](navibarId));
+        dispatch(_modules_stockTable__WEBPACK_IMPORTED_MODULE_1__["changeIsEdit"]());
       }
     })["catch"](function (error) {
       var isFail = '登録に失敗しました。';
-      dispatch(_modules_stockTable__WEBPACK_IMPORTED_MODULE_2__["fetchError"](isFail));
+      dispatch(_modules_stockTable__WEBPACK_IMPORTED_MODULE_1__["fetchError"](isFail));
     });
   };
 };
@@ -106462,13 +106552,13 @@ var editStockList = function editStockList(navibarId, stockDataList) {
 
 var getShipmentList = function getShipmentList(id, yearMonth) {
   return function (dispatch) {
-    dispatch(_modules_stockTable__WEBPACK_IMPORTED_MODULE_2__["onPendingForShippment"]());
+    dispatch(_modules_stockTable__WEBPACK_IMPORTED_MODULE_1__["onPendingForShippment"]());
     _services_API__WEBPACK_IMPORTED_MODULE_0__["getShipmentList"](id, yearMonth).then(function (res) {
       if (!res.error) {
-        dispatch(_modules_stockTable__WEBPACK_IMPORTED_MODULE_2__["setShipmentList"](res.data));
+        dispatch(_modules_stockTable__WEBPACK_IMPORTED_MODULE_1__["setShipmentList"](res.data));
       }
     })["catch"](function (error) {
-      dispatch(_modules_stockTable__WEBPACK_IMPORTED_MODULE_2__["fetchShippmentError"](error));
+      dispatch(_modules_stockTable__WEBPACK_IMPORTED_MODULE_1__["fetchShippmentError"](error));
     });
   };
 };
@@ -106538,6 +106628,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /**
  * アラート用のmodules
+ * alert.js
  */
 var SHOW_ALERT = 'alert/SHOW_ALERT';
 var CLOSE_ALERT = 'alert/CLOSE_ALERT';
@@ -106600,6 +106691,7 @@ var navibar = function navibar() {
 __webpack_require__.r(__webpack_exports__);
 /**
  * 固定文言
+ * constText.js
  */
 var initialState = {
   companyTitle: 'ヤマカ水産',
@@ -106672,6 +106764,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _constText__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./constText */ "./resources/js/modules/constText.js");
 /* harmony import */ var _alert__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./alert */ "./resources/js/modules/alert.js");
 /* harmony import */ var _stockItem__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./stockItem */ "./resources/js/modules/stockItem.js");
+/**
+ * modules/index.js
+ */
 
 
 
@@ -106714,6 +106809,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 /**
+ * modules/navibar.js
  * ナビゲーションバー用のredux modules
  */
 var FETCH_NAVIBAR_SUCESS = 'navibar/FETCH_SUCESS';
@@ -106823,6 +106919,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 /**
+ * modules/page.js
  * 画面ページ用の　redux modules
  */
 var SET_PAGE = 'page/SELECT_NAVIBAR';
@@ -106877,6 +106974,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 /**
+ * modules/reocrd.js
  * 在庫保存記録用の redux modules
  */
 var GET_RECORD_LIST = 'record/GET_RECORD_LIST';
@@ -106959,6 +107057,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 /**
+ * modules/stockItem.js
  * 在庫登録の為 redux modules
  */
 var GET_STOCK_ITEM_LIST = 'stockItem/GET_STOCK_ITEM_LIST';
@@ -107062,6 +107161,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 /**
+ * modules/stockTable.js
  * 在庫画面用の　redux modules
  */
 var FETCH_STOCK_TABLE_SUCESS = 'stockTable/FETCH_SUCESS';
@@ -107266,6 +107366,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addStockItem", function() { return addStockItem; });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/**
+ * API.js
+ */
 
 var baseURL = 'http://yamaka-inventory.com//api/'; //本番環境
 // const baseURL = 'http://192.168.11.65:3000/api/'; //本番環境
