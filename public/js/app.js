@@ -107370,7 +107370,7 @@ __webpack_require__.r(__webpack_exports__);
  * API.js
  */
 
-var baseURL = 'http://yamaka-inventory.com//api/'; //本番環境
+var baseURL = 'https://yamaka-inventory.com//api/'; //本番環境
 // const baseURL = 'http://192.168.11.65:3000/api/'; //本番環境
 // const baseURL = 'http://localhost:8000/api'; //テスト環境
 
