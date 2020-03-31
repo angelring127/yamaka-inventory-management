@@ -1,3 +1,8 @@
+AuthUserFile ./.htpasswd
+AuthType Basic
+AuthName "ヤマカ水産在庫システム"
+Require valid-user
+
 <IfModule mod_rewrite.c>
     RewriteEngine on
     RewriteCond %{REQUEST_URI} !^public
