@@ -3,7 +3,7 @@
  */
 import axios from 'axios';
 
-const baseURL = 'https://yamaka-inventory.com//api/'; //本番環境
+const baseURL = 'https://yamaka-inventory.com/api/'; //本番環境
 // const baseURL = 'http://192.168.11.65:3000/api/'; //本番環境
 
 // const baseURL = 'http://localhost:8000/api'; //テスト環境
