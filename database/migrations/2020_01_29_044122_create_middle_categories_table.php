@@ -18,6 +18,7 @@ class CreateMiddleCategoriesTable extends Migration
             $table->bigIncrements('id')->comment('納品場所ID');
             $table->unsignedBigInteger('big_category_id')->comment('場所タイプID');
             $table->string('name')->comment('納品場所名');
+            $table->smallInteger('lows')->comment('持つ列');
             $table->timestamps();
             $table->softDeletes()->comment('削除状態');
 

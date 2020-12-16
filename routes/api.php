@@ -55,22 +55,23 @@ Route::get('navi', function(Request $request) {
  */
 Route::get('stock/{id}', function(Request $request, $id) {
   if ($id !== null) {
+    $bigcategory = BigCategory::find($id);
     $selectedBigcategoryItems = MiddleCategory::where('big_category_id',$id)->get();
-    $bigcategoryList = [];
+    $middleCategoryList = [];
     foreach ($selectedBigcategoryItems as $bigCategoryItemKey => $bigCategoryItem) {
       $items = $bigCategoryItem->items;
       foreach($items as $item_key => $item) {
         $item->stocks;
       }
-      $bigcategoryList[$bigCategoryItemKey] = [
+      $middleCategoryList[$bigCategoryItemKey] = [
         'id' => $bigCategoryItem->id,
+        'lows' => $bigCategoryItem->lows,
         'big_category_id' => $bigCategoryItem->big_category_id,
         'name' => $bigCategoryItem->name,
         'items' => $items
       ];
     }
-    // dd($bigcategoryList);
-    return response()->json($bigcategoryList);
+    return response()->json(['bigcategory' => $bigcategory ,'items' => $middleCategoryList]);
   } else {
     // Todo Error Handling
     return response('database is wrong',501);
@@ -106,11 +107,16 @@ Route::post('stock/item', function(Request $request){
           'messages' => $validator->errors(),
       ], 422);
     }
+    $middleCategory = MiddleCategory::find($request->middle_category_id);
     $item = new Item();
     $item->big_category_id = $request->big_category_id;
     $item->middle_category_id = $request->middle_category_id;
+    $item->index = $middleCategory->lows;
     $item->name = $request->name;
     $result = $item->save();
+
+    $middleCategory->lows = $middleCategory->lows + 1;
+    $middleCategory->save();
 
     return response()->json($result, 200);
   }

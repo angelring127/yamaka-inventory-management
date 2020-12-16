@@ -18,6 +18,8 @@ class CreateBigCategoriesTable extends Migration
             $table->bigIncrements('id')->comment('場所タイプID');
             $table->string('name', 100)->comment('場所タイプ名');
             $table->string('manager', 100)->comment('担当者');
+            $table->smallInteger('first_sort')->comment('初期区分');
+            $table->smallInteger('second_sort')->comment('初期区分');
             $table->timestamps();
             $table->softDeletes()->comment('削除状態');
         });

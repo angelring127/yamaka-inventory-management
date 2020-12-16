@@ -19,6 +19,7 @@ class CreateItemsTable extends Migration
             $table->unsignedBigInteger('big_category_id')->comment('場所タイプID');
             $table->unsignedBigInteger('middle_category_id')->comment('納品場所ID');
             $table->string('name')->comment('商品名');
+            $table->smallInteger('index')->comment('列番号');
             $table->timestamps();
             $table->softDeletes()->comment('削除状態');
 

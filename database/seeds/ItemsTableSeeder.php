@@ -20,13 +20,7 @@ class ItemsTableSeeder extends Seeder
                 'big_category_id' => 1,
                 'middle_category_id' => 1,
                 'name' => '京都　16×4　白',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 1,
-                'middle_category_id' => 1,
-                'name' => '大阪　18×4　白',
+                'index' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
@@ -34,517 +28,463 @@ class ItemsTableSeeder extends Seeder
                 'big_category_id' => 1,
                 'middle_category_id' => 1,
                 'name' => '   特　18×4  白',
+                'index' => 1,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 1,
                 'middle_category_id' => 1,
-                'name' => '横浜　BOX14×4 黄緑',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 1,
-                'middle_category_id' => 1,
-                'name' => '東水　特上あじ15×5　ヤマカ',
+                'name' => 'BOX14×4 黄緑',
+                'index' => 2,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 1,
                 'middle_category_id' => 2,
-                'name' => '京都　BOX10×5　黄',
+                'name' => 'ホッケ4×5　緑',
+                'index' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 1,
                 'middle_category_id' => 2,
-                'name' => '群馬　10×5　黄',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 1,
-                'middle_category_id' => 2,
-                'name' => '北部　10×5　青',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 1,
-                'middle_category_id' => 2,
-                'name' => '千代田　BOX11×4　黄緑',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 1,
-                'middle_category_id' => 2,
-                'name' => '　　　　13×4白段ボール',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 1,
-                'middle_category_id' => 2,
-                'name' => 'B0X13×4　白',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 1,
-                'middle_category_id' => 2,
-                'name' => '静岡　14×4ピンク',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 1,
-                'middle_category_id' => 2,
-                'name' => '東水　BOX15×4赤',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 1,
-                'middle_category_id' => 2,
-                'name' => '綜合　15×4　白',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 1,
-                'middle_category_id' => 2,
-                'name' => 'BOX15×4　青',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 1,
-                'middle_category_id' => 2,
-                'name' => '　　　16×4　黄',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 1,
-                'middle_category_id' => 2,
-                'name' => '　　　16×4オレンジ',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 1,
-                'middle_category_id' => 2,
-                'name' => '　　　18×4紫',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 1,
-                'middle_category_id' => 2,
-                'name' => '山梨　20×4紫',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 1,
-                'middle_category_id' => 2,
-                'name' => '宮市　生22×4　白',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 1,
-                'middle_category_id' => 2,
-                'name' => '川崎　22×5　水色',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 1,
-                'middle_category_id' => 2,
-                'name' => '　　　　40×４水色',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 1,
-                'middle_category_id' => 2,
-                'name' => '群馬　IQF30　黄',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 1,
-                'middle_category_id' => 2,
-                'name' => '　　　　IQF30　黄緑',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 1,
-                'middle_category_id' => 2,
-                'name' => '京都　IQF40　ピンク',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 1,
-                'middle_category_id' => 2,
-                'name' => '北部　IQF40　白',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 1,
-                'middle_category_id' => 2,
-                'name' => '静岡　IQF50　オレンジ',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 1,
-                'middle_category_id' => 2,
-                'name' => '静岡　IQF50　ピンク',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 1,
-                'middle_category_id' => 2,
-                'name' => '　　　　IQF50　紫',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 1,
-                'middle_category_id' => 2,
-                'name' => '東水　3枚×15Pヤマカ',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 1,
-                'middle_category_id' => 2,
-                'name' => '千代田網金アジ3枚×16Pヤマカ',
+                'name' => '赤魚F　2枚×15P　黒赤',
+                'index' => 3,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 1,
                 'middle_category_id' => 3,
-                'name' => '千代田あじ3枚×15ピンク',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 1,
-                'middle_category_id' => 3,
-                'name' => '川崎真空2枚×10袋',
+                'name' => 'オランダ18×4　ピンク',
+                'index' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 1,
                 'middle_category_id' => 4,
-                'name' => 'じゅわっとシール無し25　',
+                'name' => '長崎16×4　黄',
+                'index' => 0,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 1,
+                'middle_category_id' => 4,
+                'name' => '長崎16×4　オレンジ',
+                'index' => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 1,
+                'middle_category_id' => 4,
+                'name' => '長崎14×4　ピンク',
+                'index' => 2,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 1,
+                'middle_category_id' => 4,
+                'name' => '長崎18×4　紫',
+                'index' => 3,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 1,
+                'middle_category_id' => 4,
+                'name' => '静岡オランダ　IQF３０枚',
+                'index' => 4,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 1,
+                'middle_category_id' => 4,
+                'name' => '金目鯛　BOX８×5　青',
+                'index' => 6,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 1,
+                'middle_category_id' => 4,
+                'index'=> 7,
+                'name' => '金目６×5　オレンジ',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 1,
                 'middle_category_id' => 5,
-                'name' => 'IQF25　黄',
+                'name' => 'オランダ10×4　白',
+                'index' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 1,
                 'middle_category_id' => 5,
-                'name' => 'IQF35　赤',
+                'name' => '長崎あじ20枚×4　紫',
+                'index' => 1,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 1,
                 'middle_category_id' => 6,
-                'name' => '宮市　半折6×12Ｐ黄',
+                'name' => '網金アジ3枚×16P　青',
+                'index' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 1,
                 'middle_category_id' => 6,
-                'name' => '宮市　半折 8×12P白',
+                'name' => '網金さんま2枚×16P　赤',
+                'index' => 1,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 1,
                 'middle_category_id' => 6,
-                'name' => '山梨　10×4白',
+                'name' => 'かます　IQF　8枚　ピンク',
+                'index' => 2,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 1,
                 'middle_category_id' => 6,
-                'name' => '岐阜　10×5ｵﾚﾝｼﾞ',
+                'name' => '　　　　　 　　10枚　黄',
+                'index' => 3,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 1,
                 'middle_category_id' => 6,
-                'name' => '岐阜　12×5水色',
+                'name' => '　　　　　 　　15枚　黒',
+                'index' => 4,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 1,
                 'middle_category_id' => 6,
-                'name' => '宮市　15×4 ｵﾚﾝｼﾞ',
+                'name' => '　　　　　 　　20枚　緑',
+                'index' => 5,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 1,
                 'middle_category_id' => 6,
-                'name' => '南都　18×4ピンク',
+                'name' => '　　　　　　　 30枚　茶',
+                'index' => 6,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 1,
                 'middle_category_id' => 6,
-                'name' => '静岡　IQF３０ピンク',
+                'name' => '　　　　　　　 50枚　白',
+                'index' => 7,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 1,
                 'middle_category_id' => 6,
-                'name' => '　　　　2枚×15P青',
+                'name' => '　　2枚×15P　黄',
+                'index' => 8,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 1,
                 'middle_category_id' => 6,
-                'name' => '南都　2枚×20袋',
+                'name' => '　　2枚×15　緑黄',
+                'index' => 9,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 1,
+                'middle_category_id' => 6,
+                'name' => '　無添加20枚　緑',
+                'index' => 10,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 1,
+                'middle_category_id' => 6,
+                'name' => '韓国アジIQF30枚　黒',
+                'index' => 12,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 1,
+                'middle_category_id' => 6,
+                'name' => '韓国アジIQF25枚　黄緑',
+                'index' => 13,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 1,
+                'middle_category_id' => 6,
+                'name' => 'オランダ2枚×15P　青',
+                'index' => 14,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 1,
+                'middle_category_id' => 6,
+                'name' => '金目中島IQF20枚　緑',
+                'index' => 16,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 1,
+                'middle_category_id' => 6,
+                'name' => '　IQF15枚　紫',
+                'index' => 17,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 1,
+                'middle_category_id' => 6,
+                'name' => '　IQF20　空色',
+                'index' => 18,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 1,
+                'middle_category_id' => 6,
+                'name' => '　IQF20　紫',
+                'index' => 19,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 1,
+                'middle_category_id' => 6,
+                'name' => 'IQF20オレンジ　シール無し',
+                'index' => 20,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 1,
+                'middle_category_id' => 6,
+                'name' => '魚力1枚真空×10袋　紫',
+                'index' => 21,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 1,
+                'middle_category_id' => 6,
+                'name' => 'カレイIQF30　緑茶緑',
+                'index' => 23,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 1,
                 'middle_category_id' => 7,
-                'name' => '宮市　2枚×20袋',
+                'name' => '無添加あじ2枚×35枚　黒',
+                'index' => 0,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 1,
+                'middle_category_id' => 7,
+                'name' => '長崎あじIQF30　紫',
+                'index' => 3,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 1,
+                'middle_category_id' => 7,
+                'name' => '韓国あじ40枚　青',
+                'index' => 4,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 1,
                 'middle_category_id' => 8,
-                'name' => '　　　　IQF25　黄緑',
+                'name' => '長崎BOX15×4　赤',
+                'index' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 1,
                 'middle_category_id' => 8,
-                'name' => '　　　　IQF30　黒',
+                'name' => '特上あじ15×5　ヤマカ黒',
+                'index' => 1,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 1,
                 'middle_category_id' => 8,
-                'name' => '　　　　IQF40　青',
+                'name' => '長崎40×４　水色',
+                'index' => 2,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 1,
                 'middle_category_id' => 8,
-                'name' => '千葉　IQF50　　オレンジ',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 1,
-                'middle_category_id' => 8,
-                'name' => '板真空韓国1枚×30袋黄',
+                'name' => '長崎3枚×15P　ヤマカ黒',
+                'index' => 3,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 1,
                 'middle_category_id' => 9,
-                'name' => '東水　IQF30',
+                'name' => 'ｵﾗﾝﾀﾞ10×5　ｵﾚﾝｼﾞ',
+                'index' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 1,
                 'middle_category_id' => 9,
-                'name' => '東市　4枚×15袋緑',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 1,
-                'middle_category_id' => 9,
-                'name' => '東市　小田急3枚×15袋青',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 1,
-                'middle_category_id' => 9,
-                'name' => '広島　2枚×35袋',
+                'name' => 'ｵﾗﾝﾀﾞ12×5　水色',
+                'index' => 1,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 1,
                 'middle_category_id' => 10,
-                'name' => '千葉　14×4　白',
+                'name' => '無添加あじ4枚×15袋',
+                'index' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 1,
                 'middle_category_id' => 10,
-                'name' => '宮市　16×4　白',
+                'name' => '小田急3枚×15袋　青',
+                'index' => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 1,
+                'middle_category_id' => 10,
+                'name' => '対馬海域あじIQF30枚水色',
+                'index' => 3,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 1,
                 'middle_category_id' => 11,
-                'name' => 'カレイIQF20',
+                'name' => '生22×4　白',
+                'index' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 1,
                 'middle_category_id' => 11,
-                'name' => 'カレイIQF30　緑茶',
+                'name' => 'フランス16×4　白',
+                'index' => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 1,
+                'middle_category_id' => 11,
+                'name' => 'ｵﾗﾝﾀﾞ15×4 ｵﾚﾝｼﾞ',
+                'index' => 2,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 1,
+                'middle_category_id' => 11,
+                'name' => '半折 8×12　白',
+                'index' => 3,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 1,
+                'middle_category_id' => 11,
+                'name' => '半折6×12Ｐ　黄',
+                'index' => 4,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 1,
                 'middle_category_id' => 12,
-                'name' => '　　　さんまIQF30　緑黒',
+                'name' => 'アイルランドIQF35　赤',
+                'index' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 1,
                 'middle_category_id' => 12,
-                'name' => '網金さんま2枚×16P',
+                'name' => 'アイルランドIQF25　黄',
+                'index' => 1,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 1,
                 'middle_category_id' => 13,
-                'name' => '　IQF50　赤',
+                'name' => '長崎　IQF40枚　ピンク',
+                'index' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 1,
-                'middle_category_id' => 14,
-                'name' => '6×5　オレンジ',
+                'middle_category_id' => 13,
+                'name' => '　　　13×4段ボール　白',
+                'index' => 1,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 1,
-                'middle_category_id' => 14,
-                'name' => '8×5　青',
+                'middle_category_id' => 13,
+                'name' => '長崎　BOX　10×5　黄',
+                'index' => 3,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 1,
-                'middle_category_id' => 14,
-                'name' => '15×5　黄緑',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 1,
-                'middle_category_id' => 14,
-                'name' => '12×5　黄',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 1,
-                'middle_category_id' => 14,
-                'name' => 'IQF8　紫',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 1,
-                'middle_category_id' => 14,
-                'name' => 'IQF10　赤',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 1,
-                'middle_category_id' => 14,
-                'name' => 'IQF12　黄緑',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 1,
-                'middle_category_id' => 14,
-                'name' => 'IQF15　紫',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 1,
-                'middle_category_id' => 14,
-                'name' => 'IQF18 黄緑',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 1,
-                'middle_category_id' => 14,
-                'name' => 'IQF20　空色',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 1,
-                'middle_category_id' => 14,
-                'name' => 'IQF20　オレンジ',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 1,
-                'middle_category_id' => 14,
-                'name' => 'IQF20　紫',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 1,
-                'middle_category_id' => 14,
-                'name' => '中島IQF20枚緑',
+                'middle_category_id' => 13,
+                'name' => '長崎　BOX15×4　青',
+                'index' => 4,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
@@ -552,143 +492,266 @@ class ItemsTableSeeder extends Seeder
                 'big_category_id' => 1,
                 'middle_category_id' => 14,
                 'name' => 'IQF40　白',
+                'index' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 1,
                 'middle_category_id' => 14,
-                'name' => 'IQF40　赤黒',
+                'name' => '長崎　10×5　青',
+                'index' => 1,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 1,
-                'middle_category_id' => 14,
+                'middle_category_id' => 15,
+                'name' => '長崎BOX13×4　白',
+                'index' => 0,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 1,
+                'middle_category_id' => 15,
+                'name' => 'あじ2枚真空×10袋　茶',
+                'index' => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 1,
+                'middle_category_id' => 15,
+                'name' => '真ホッケ８×5　黄',
+                'index' => 3,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 1,
+                'middle_category_id' => 16,
+                'name' => 'フランス14×4　白',
+                'index' => 0,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 1,
+                'middle_category_id' => 17,
+                'name' => '銀だら　８×12　白',
+                'index' => 0,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 1,
+                'middle_category_id' => 17,
+                'name' => 'シマホッケ9×12　黄',
+                'index' => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 1,
+                'middle_category_id' => 18,
+                'name' => '長崎10×５　黄',
+                'index' => 0,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 1,
+                'middle_category_id' => 19,
+                'name' => '長崎15×4　白',
+                'index' => 0,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 1,
+                'middle_category_id' => 19,
+                'name' => '長崎あじ40×4　ピンク',
+                'index' => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 1,
+                'middle_category_id' => 19,
+                'name' => 'オランダ22×4　黄緑',
+                'index' => 2,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 1,
+                'middle_category_id' => 19,
+                'name' => 'ホッケ4×5　ピンク',
+                'index' => 3,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 1,
+                'middle_category_id' => 20,
+                'name' => '長崎IQF50枚　紫',
+                'index' => 0,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 1,
+                'middle_category_id' => 20,
+                'name' => '長崎BOX11×4　黄緑',
+                'index' => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 1,
+                'middle_category_id' => 20,
+                'name' => '長崎22×5　水色',
+                'index' => 2,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 1,
+                'middle_category_id' => 20,
+                'name' => '韓国50枚　オレンジ',
+                'index' => 3,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 1,
+                'middle_category_id' => 21,
+                'name' => '宮城　IQF8枚　紫',
+                'index' => 0,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 1,
+                'middle_category_id' => 21,
+                'name' => '宮城　IQF10枚　赤',
+                'index' => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 1,
+                'middle_category_id' => 21,
                 'name' => '新金目IQF8　オレンジ',
+                'index' => 2,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 1,
-                'middle_category_id' => 14,
+                'middle_category_id' => 21,
                 'name' => '新金目IQF10　青',
+                'index' => 3,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 1,
-                'middle_category_id' => 15,
-                'name' => '魚力　1枚×10袋紫',
+                'middle_category_id' => 21,
+                'name' => '新金目IQF16　水色',
+                'index' => 4,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 1,
-                'middle_category_id' => 15,
-                'name' => '板　　1枚×15袋青',
+                'middle_category_id' => 21,
+                'name' => '金目IQF40枚　白',
+                'index' => 5,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 1,
-                'middle_category_id' => 16,
-                'name' => 'IQF8　ピンク　',
+                'middle_category_id' => 22,
+                'name' => 'アジ3枚×20袋　ヤマカ黄',
+                'index' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 1,
-                'middle_category_id' => 16,
-                'name' => 'IQF10　黄　',
+                'middle_category_id' => 23,
+                'name' => '金目1枚×15　青',
+                'index' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 1,
-                'middle_category_id' => 16,
-                'name' => 'IQF15　黒　',
+                'middle_category_id' => 23,
+                'name' => 'あじ1枚×30　黄',
+                'index' => 1,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 1,
-                'middle_category_id' => 16,
-                'name' => 'IQF20　緑　',
+                'middle_category_id' => 23,
+                'name' => 'カレイ１枚×30袋　赤',
+                'index' => 2,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 1,
-                'middle_category_id' => 16,
-                'name' => 'IQF30　茶  ',
+                'middle_category_id' => 24,
+                'name' => '長崎あじIQF40　オレンジ',
+                'index' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 1,
-                'middle_category_id' => 16,
-                'name' => 'IQF50　白',
+                'middle_category_id' => 25,
+                'name' => '無添加キンメ1枚真空×10　オレンジ',
+                'index' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 1,
-                'middle_category_id' => 16,
-                'name' => 'かます2×15P黄',
+                'middle_category_id' => 25,
+                'name' => '無添加あじ２枚真空×10　黄',
+                'index' => 1,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 1,
-                'middle_category_id' => 17,
-                'name' => '綜合　ホッケ4×5　ピンク',
+                'middle_category_id' => 25,
+                'name' => '韓国あじ3枚袋×15　オレンジ',
+                'index' => 2,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 1,
-                'middle_category_id' => 17,
-                'name' => '丸海　ホッケ4×5　緑',
+                'middle_category_id' => 26,
+                'name' => 'あじ2枚×15袋　青',
+                'index' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 1,
-                'middle_category_id' => 18,
-                'name' => '韓国あじ2枚×15袋ピンク',
+                'middle_category_id' => 27,
+                'name' => 'あじIQF40　ピンク',
+                'index' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
-            [
-                'big_category_id' => 1,
-                'middle_category_id' => 18,
-                'name' => '金目1枚×15袋黄',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 1,
-                'middle_category_id' => 19,
-                'name' => '銀だら　８切×12P白',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 1,
-                'middle_category_id' => 19,
-                'name' => '銀だら　８切×6P白',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 1,
-                'middle_category_id' => 19,
-                'name' => 'シマホッケ　9切×12P黄',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            
         ];
 
         DB::table('items')->insert($items);
@@ -696,1279 +759,1229 @@ class ItemsTableSeeder extends Seeder
         $items2 = [
             [
                 'big_category_id' => 2,
-                'middle_category_id' => 20,
-                'name' => '全水ノルさば開き　20枚紫',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 20,
-                'name' => '横浜ノルさば開き　20枚白',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 20,
-                'name' => 'ノルさばF　25枚　黄緑',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 20,
-                'name' => 'ノルさばF　40枚　紫',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 20,
-                'name' => 'ノルさばF　小小40枚　黄緑',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 20,
-                'name' => '千代田さば開き骨なし20枚',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 20,
-                'name' => '千代田宮城さば開き20枚ﾋﾟﾝｸ',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 20,
-                'name' => '宮城さば開き20枚　紫',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 20,
-                'name' => '千葉さば開き30枚　緑',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 20,
-                'name' => 'さばF2枚×15P（大)黄',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 20,
-                'name' => 'さばF2枚×15P(網)青',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 20,
-                'name' => 'さばF2枚×15P（小）黄',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 21,
-                'name' => '川崎　2枚×10袋',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 21,
-                'name' => '川崎醤油　2枚×10袋',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 22,
-                'name' => 'ノルさば開き骨なし20枚',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 22,
-                'name' => 'ノルさば開き　25枚　青',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 22,
-                'name' => 'ノルさばF大25枚　ピンク',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 22,
-                'name' => 'ノルさばF　30枚　青',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 22,
-                'name' => 'ノルさばF　40枚　水色',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 22,
-                'name' => 'ノルさばF　少少',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 22,
-                'name' => '京都ノルさば2枚×15P',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 22,
-                'name' => '京都ノルさば2枚×15P 水色',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 23,
-                'name' => 'さばF　　40枚　緑',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 23,
-                'name' => 'さばF醤油　40枚　茶',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 24,
-                'name' => '千葉サバ1枚×20袋緑',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 24,
-                'name' => '縞ホッケ1枚×20袋',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 24,
-                'name' => '縞ホッケ1枚×20袋 ｵﾚﾝｼﾞ',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 25,
-                'name' => 'オランダ2枚×15P　水色',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 25,
-                'name' => 'さば2枚×15P　小　白',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 25,
-                'name' => 'さば2枚×15P　大黄緑',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 25,
-                'name' => 'さば川崎　2枚×15P黒',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 25,
-                'name' => '真ホッケ1枚×15Pピンク',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 25,
-                'name' => '縞ホッケ2枚×15Pｵﾚﾝｼﾞ',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 25,
-                'name' => '赤魚　2枚×15P　赤',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 26,
-                'name' => 'オランダ　2枚×15P',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 26,
-                'name' => 'ノルさば　2枚×15P',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 26,
-                'name' => '赤魚　2枚×15P',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 27,
-                'name' => '羽野　50枚　赤白',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 27,
-                'name' => '羽野　80枚　赤白',
+                'middle_category_id' => 28,
+                'name' => 'さば塩2枚×20袋　ヤマカ黒',
+                'index' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 2,
                 'middle_category_id' => 28,
-                'name' => '水色　25枚',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 28,
-                'name' => '黄緑　35枚',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 28,
-                'name' => '青　45枚',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 28,
-                'name' => 'オレンジ　50枚',
+                'name' => 'さば醤油2枚×20袋　ヤマカ醤油',
+                'index' => 1,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 2,
                 'middle_category_id' => 29,
-                'name' => '350/400ｇ　15枚　黄',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 29,
-                'name' => '           12枚　白',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 29,
-                'name' => '200/250ｇ　20枚　黄',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 29,
-                'name' => '　ライフ　   20枚　緑',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 29,
-                'name' => '　第一　　  20枚　紫',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 29,
-                'name' => '250/300g   20枚　水色',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 29,
-                'name' => '300/350ｇ　20枚　ピンク',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 29,
-                'name' => '　千代田    24枚　黒',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 29,
-                'name' => '140/180ｇ　30枚　黄',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 29,
-                'name' => '110/140ｇ　40枚　黒　',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 29,
-                'name' => '　　　　20枚　ヤマカ黄',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 29,
-                'name' => '　　　　30枚　ヤマカ黄',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 29,
-                'name' => '川秀　30枚　白',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 29,
-                'name' => '川秀　30枚　赤',
+                'name' => 'ノルさば開き　20枚　紫',
+                'index' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 2,
                 'middle_category_id' => 30,
-                'name' => '20枚　青',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 30,
-                'name' => '30枚　黄緑',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 30,
-                'name' => '40枚　ピンク',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 30,
-                'name' => '50枚　緑',
+                'name' => 'ノルさば開き20枚　白',
+                'index' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 2,
                 'middle_category_id' => 31,
-                'name' => '名古屋　真ほっけ15枚',
+                'name' => 'さば開き骨なし20枚　ヤマカ黒',
+                'index' => 0,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 2,
+                'middle_category_id' => 31,
+                'name' => '宮城さば開き　20枚　ピンク',
+                'index' => 2,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 2,
+                'middle_category_id' => 31,
+                'name' => '　　　　　　　　20枚　紫',
+                'index' => 3,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 2,
                 'middle_category_id' => 32,
-                'name' => '　30枚　茶',
+                'name' => '1枚×10袋　紫',
+                'index' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 2,
                 'middle_category_id' => 33,
-                'name' => '頭付き　10枚黄',
+                'name' => 'サバ　2枚×15P　小　白',
+                'index' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 2,
                 'middle_category_id' => 33,
-                'name' => '頭付き　10枚緑（第一）',
+                'name' => '赤魚F2枚×15P　赤',
+                'index' => 1,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 2,
                 'middle_category_id' => 33,
-                'name' => '頭付き　12枚青',
+                'name' => '真ﾎｯｹ1枚×15P　ピンク',
+                'index' => 2,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 2,
                 'middle_category_id' => 33,
-                'name' => '頭付き　15枚オレンジ',
+                'name' => 'オランダ2枚×15P　水色',
+                'index' => 3,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 2,
                 'middle_category_id' => 33,
-                'name' => '頭付き　20枚　紫',
+                'name' => 'サバ2枚×15P大　黄緑',
+                'index' => 4,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 2,
                 'middle_category_id' => 33,
-                'name' => '頭付き　25枚　赤　',
+                'name' => 'シマホッケ2枚×15P　オレンジ',
+                'index' => 5,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 2,
                 'middle_category_id' => 33,
-                'name' => '千代田無頭　20枚黄緑',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 33,
-                'name' => '千代田無頭　25枚赤',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 33,
-                'name' => 'F　50枚　紫',
+                'name' => 'さば2枚×15P黒（川崎）',
+                'index' => 7,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 2,
                 'middle_category_id' => 34,
-                'name' => 'F　　30枚　ピンク',
+                'name' => '千葉さばF2枚×15P黄（山梨)',
+                'index' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 2,
                 'middle_category_id' => 34,
-                'name' => 'F　　50枚　黄緑',
+                'name' => '赤魚F2枚×15P紫（山梨）',
+                'index' => 1,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 2,
                 'middle_category_id' => 34,
-                'name' => 'F　　50枚　オレンジ',
+                'name' => '長崎あじ2枚15Pヤマカ黄(東水）',
+                'index' => 3,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 2,
                 'middle_category_id' => 34,
-                'name' => 'マルイチ　2枚×15P紫',
+                'name' => 'サバ2枚×15P水色(京都）',
+                'index' => 4,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 2,
                 'middle_category_id' => 35,
-                'name' => 'さばF　　40枚　白　　',
+                'name' => 'サバF2枚×15P　青',
+                'index' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 2,
                 'middle_category_id' => 35,
-                'name' => '真ホッケ　20枚　緑',
+                'name' => 'サバ切身3枚×15P　黄',
+                'index' => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 2,
+                'middle_category_id' => 35,
+                'name' => 'あじ2枚×15P　赤',
+                'index' => 2,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 2,
+                'middle_category_id' => 35,
+                'name' => 'あじ3枚×15P　緑',
+                'index' => 3,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 2,
                 'middle_category_id' => 36,
-                'name' => 'さば　2枚×10袋',
+                'name' => '千葉サバ開き25枚　黄',
+                'index' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 2,
                 'middle_category_id' => 36,
-                'name' => 'さば醤油　2枚×10袋',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 36,
-                'name' => '縞ホッケ　2枚×10袋',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 36,
-                'name' => '縞ホッケ醤油2枚×10袋',
+                'name' => '千葉さば開き40枚　黒',
+                'index' => 1,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 2,
                 'middle_category_id' => 37,
-                'name' => '古い原料18枚黄',
+                'name' => '25枚　水色',
+                'index' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 2,
                 'middle_category_id' => 37,
-                'name' => '古い原料20枚青',
+                'name' => '45枚　青',
+                'index' => 1,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 2,
                 'middle_category_id' => 37,
-                'name' => '　　　　14枚紫',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 37,
-                'name' => '　　　　25枚緑',
+                'name' => '50枚　オレンジ',
+                'index' => 2,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 2,
                 'middle_category_id' => 38,
-                'name' => '12枚　ピンク  ',
+                'name' => '12枚　緑',
+                'index' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 2,
                 'middle_category_id' => 38,
-                'name' => '15枚　白',
+                'name' => '16枚　黄',
+                'index' => 1,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 2,
                 'middle_category_id' => 38,
-                'name' => '20枚　緑',
+                'name' => '18枚　オレンジ',
+                'index' => 2,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 2,
                 'middle_category_id' => 38,
-                'name' => '25枚　黒',
+                'name' => '20枚　ピンク',
+                'index' => 3,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 2,
                 'middle_category_id' => 39,
-                'name' => '大８枚(紫）',
+                'name' => 'ノルさばF　30枚　青',
+                'index' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 2,
                 'middle_category_id' => 39,
-                'name' => '　８枚　黄緑',
+                'name' => 'ノルさばF　40枚　水色',
+                'index' => 1,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 2,
                 'middle_category_id' => 39,
-                'name' => '１０枚（ﾋﾟﾝｸ）',
+                'name' => 'ノルさばF　少少40枚　水色',
+                'index' => 2,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 2,
                 'middle_category_id' => 39,
-                'name' => '１０枚　緑',
+                'name' => 'ノルさば開き　25枚　青',
+                'index' => 3,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 2,
                 'middle_category_id' => 39,
-                'name' => '１2枚　青',
+                'name' => 'ノルさば　20枚　青',
+                'index' => 4,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 2,
                 'middle_category_id' => 39,
-                'name' => '１2枚　黒',
+                'name' => '赤魚F　　30枚　ピンク',
+                'index' => 6,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 2,
                 'middle_category_id' => 39,
-                'name' => '第一　12枚　ヤマカ',
+                'name' => '赤魚F　　50枚　黄緑',
+                'index' => 7,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 2,
                 'middle_category_id' => 39,
-                'name' => '20枚　オレンジ',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 39,
-                'name' => '20枚　黒　(京都）',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 39,
-                'name' => '25枚　青',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 39,
-                'name' => 'シマホッケF　16枚黄緑',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 39,
-                'name' => 'シマホッケF　20枚　緑',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 39,
-                'name' => 'シマホッケF　40枚　黄',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 39,
-                'name' => '(東急）2枚×15P　黒',
+                'name' => 'オランダアジ　40枚　赤',
+                'index' => 9,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 2,
                 'middle_category_id' => 40,
-                'name' => '2枚×15P黄・緑',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 40,
-                'name' => '有頭2枚×15P茶',
+                'name' => '縞ホッケ開き　20枚　ヤマカ醤油',
+                'index' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 2,
                 'middle_category_id' => 41,
-                'name' => '山梨　F40枚',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 41,
-                'name' => 'F（大）40枚ピンク',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 41,
-                'name' => '京都　20枚',
+                'name' => '真ほっけ15枚　空色',
+                'index' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 2,
                 'middle_category_id' => 42,
-                'name' => '第一　1枚×10袋　紫',
+                'name' => 'さば開き骨なし20枚ヤマカ醤油',
+                'index' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 2,
                 'middle_category_id' => 43,
-                'name' => 'シマホッケ有頭　50枚',
+                'name' => '縞ホッケF40枚　赤',
+                'index' => 0,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 2,
+                'middle_category_id' => 43,
+                'name' => '韓国あじ50枚　黒',
+                'index' => 1,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 2,
                 'middle_category_id' => 44,
-                'name' => '16枚　黄',
+                'name' => 'アイルランド50赤・白(羽野）',
+                'index' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 2,
                 'middle_category_id' => 44,
-                'name' => '18枚　オレンジ',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 44,
-                'name' => '20枚　　ピンク',
+                'name' => 'サバFカマ無し50枚　オレンジ',
+                'index' => 1,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 2,
                 'middle_category_id' => 45,
-                'name' => '韓国真あじ40枚　黄緑',
+                'name' => '20枚　水色',
+                'index' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 2,
                 'middle_category_id' => 45,
-                'name' => '韓国あじ　山梨　50枚',
+                'name' => '30枚　ヤマカ黄',
+                'index' => 1,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 2,
                 'middle_category_id' => 45,
-                'name' => 'オランダアジ　40枚',
+                'name' => '15枚　黄350/400ｇ',
+                'index' => 3,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 2,
                 'middle_category_id' => 45,
-                'name' => 'オランダアジ　40枚',
+                'name' => '20枚　黄200/250ｇ',
+                'index' => 4,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 2,
                 'middle_category_id' => 45,
-                'name' => '東水長崎あじ2枚×15P',
+                'name' => '20枚　青',
+                'index' => 5,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 2,
                 'middle_category_id' => 45,
-                'name' => '                ﾔﾏｶ',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 45,
-                'name' => '韓国あじ3枚×15P',
+                'name' => '50枚　オレンジ',
+                'index' => 6,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 2,
                 'middle_category_id' => 46,
-                'name' => '真ﾎｯｹ2枚×15袋青',
+                'name' => '20枚　紫',
+                'index' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 2,
                 'middle_category_id' => 46,
-                'name' => '赤魚2枚×15袋紫',
+                'name' => '40枚　ピンク',
+                'index' => 1,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 2,
-                'middle_category_id' => 46,
-                'name' => '大水赤魚2枚×15袋',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 2,
-                'middle_category_id' => 46,
-                'name' => '                ｵﾚﾝｼﾞ',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 3,
                 'middle_category_id' => 47,
-                'name' => 'ホンダフジ　長崎大20枚赤',
+                'name' => '大水1枚×10袋　水色',
+                'index' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
-                'big_category_id' => 3,
+                'big_category_id' => 2,
                 'middle_category_id' => 47,
-                'name' => '全日食　オンダアジ20枚白',
+                'name' => 'ライフ1枚×20袋　黄',
+                'index' => 1,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
-                'big_category_id' => 3,
+                'big_category_id' => 2,
                 'middle_category_id' => 48,
-                'name' => 'スーパー新　50枚黒',
+                'name' => '頭付き　10枚　黄',
+                'index' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
-                'big_category_id' => 3,
+                'big_category_id' => 2,
                 'middle_category_id' => 48,
-                'name' => 'ショクブン　50枚緑',
+                'name' => '3頭付き　12枚　青',
+                'index' => 1,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
-                'big_category_id' => 3,
+                'big_category_id' => 2,
                 'middle_category_id' => 48,
-                'name' => 'シャスコ　60枚　水色　',
+                'name' => '頭付き　15枚　オレンジ',
+                'index' => 2,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
-                'big_category_id' => 3,
+                'big_category_id' => 2,
+                'middle_category_id' => 48,
+                'name' => '頭付き　20枚　紫',
+                'index' => 3,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 2,
+                'middle_category_id' => 48,
+                'name' => '頭付き　25枚　赤',
+                'index' => 4,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 2,
+                'middle_category_id' => 48,
+                'name' => '無頭10枚　赤',
+                'index' => 6,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 2,
+                'middle_category_id' => 48,
+                'name' => '無頭20枚　黄緑(千代田）',
+                'index' => 7,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 2,
+                'middle_category_id' => 48,
+                'name' => '無頭20枚　赤',
+                'index' => 8,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 2,
+                'middle_category_id' => 48,
+                'name' => '無頭開き　　25枚　赤　',
+                'index' => 9,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 2,
+                'middle_category_id' => 48,
+                'name' => 'F　50枚　紫',
+                'index' => 11,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 2,
                 'middle_category_id' => 49,
-                'name' => '60枚　青 ',
+                'name' => '千葉サバ1枚×20袋　緑',
+                'index' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
-                'big_category_id' => 3,
+                'big_category_id' => 2,
                 'middle_category_id' => 49,
-                'name' => '60枚　緑',
+                'name' => '縞ホッケ1枚×20袋　オレンジ',
+                'index' => 1,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
-                'big_category_id' => 3,
+                'big_category_id' => 2,
                 'middle_category_id' => 50,
-                'name' => '生協　オランダ3枚×40袋',
+                'name' => '真ホッケ　20枚　緑',
+                'index' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
-                'big_category_id' => 3,
+                'big_category_id' => 2,
+                'middle_category_id' => 50,
+                'name' => 'さばF　　40枚　白　　',
+                'index' => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 2,
                 'middle_category_id' => 51,
-                'name' => 'マルエツ　2枚×20P',
+                'name' => '８枚　黄緑',
+                'index' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
-                'big_category_id' => 3,
+                'big_category_id' => 2,
                 'middle_category_id' => 51,
-                'name' => 'マルエツ　3枚×20P',
+                'name' => '１０枚　ﾋﾟﾝｸ',
+                'index' => 2,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
-                'big_category_id' => 3,
+                'big_category_id' => 2,
                 'middle_category_id' => 51,
-                'name' => 'オリンピック長崎あじ',
+                'name' => '１０枚　緑',
+                'index' => 4,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
-                'big_category_id' => 3,
+                'big_category_id' => 2,
                 'middle_category_id' => 51,
-                'name' => 'オリンピック長崎あじ',
+                'name' => '12枚（第一）ヤマカ黒　',
+                'index' => 6,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
-                'big_category_id' => 3,
+                'big_category_id' => 2,
                 'middle_category_id' => 51,
-                'name' => '3枚×15P　',
+                'name' => '１2枚　青',
+                'index' => 8,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
-                'big_category_id' => 3,
+                'big_category_id' => 2,
                 'middle_category_id' => 51,
-                'name' => '三和あじ2枚×15P白',
+                'name' => '１2枚　黒',
+                'index' => 10,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
-                'big_category_id' => 3,
+                'big_category_id' => 2,
                 'middle_category_id' => 51,
-                'name' => '東急中骨あじ2枚×15P',
+                'name' => '20枚　オレンジ',
+                'index' => 12,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
-                'big_category_id' => 3,
+                'big_category_id' => 2,
                 'middle_category_id' => 51,
-                'name' => 'オレンジ　　',
+                'name' => '20枚　水色',
+                'index' => 14,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
-                'big_category_id' => 3,
+                'big_category_id' => 2,
                 'middle_category_id' => 51,
-                'name' => '千代田マックス韓国あじ',
+                'name' => '20枚　黒　(京都）',
+                'index' => 16,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
-                'big_category_id' => 3,
+                'big_category_id' => 2,
                 'middle_category_id' => 51,
-                'name' => '2枚×20P　黒',
+                'name' => '25枚　青',
+                'index' => 18,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
-                'big_category_id' => 3,
+                'big_category_id' => 2,
                 'middle_category_id' => 51,
-                'name' => 'ダイエ-長崎上アジ',
+                'name' => 'F16枚　黄緑',
+                'index' => 20,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
-                'big_category_id' => 3,
+                'big_category_id' => 2,
                 'middle_category_id' => 51,
-                'name' => '2枚×20Ｐ白　　　',
+                'name' => 'F20枚　緑',
+                'index' => 21,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
-                'big_category_id' => 3,
+                'big_category_id' => 2,
                 'middle_category_id' => 51,
-                'name' => '食品館　あじ3枚×15P赤',
+                'name' => 'F40枚　黄',
+                'index' => 22,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
-                'big_category_id' => 3,
+                'big_category_id' => 2,
                 'middle_category_id' => 51,
-                'name' => '千葉　真あじ4枚×16P',
+                'name' => '2枚×15P　黒(東急）',
+                'index' => 24,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
-                'big_category_id' => 3,
-                'middle_category_id' => 51,
-                'name' => 'ホンダオランダ4枚×15P緑',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 3,
-                'middle_category_id' => 51,
-                'name' => '(差し込み）長崎3枚×15P紫',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 3,
+                'big_category_id' => 2,
                 'middle_category_id' => 52,
-                'name' => 'ライフ2枚×15P 　黄',
+                'name' => 'F　25枚　黄緑',
+                'index' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
-                'big_category_id' => 3,
+                'big_category_id' => 2,
+                'middle_category_id' => 52,
+                'name' => 'F　40枚　紫',
+                'index' => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 2,
+                'middle_category_id' => 52,
+                'name' => 'F　小小40枚　黄緑',
+                'index' => 2,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 2,
+                'middle_category_id' => 52,
+                'name' => 'F　2枚×15P大　黄',
+                'index' => 4,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 2,
+                'middle_category_id' => 52,
+                'name' => 'F　2枚×15P小　黄',
+                'index' => 5,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 2,
+                'middle_category_id' => 52,
+                'name' => 'サバ切身80枚　赤・黒',
+                'index' => 6,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 2,
                 'middle_category_id' => 53,
-                'name' => '農塩　20枚',
+                'name' => 'さばF醤油　40枚　茶',
+                'index' => 1,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
-                'big_category_id' => 3,
+                'big_category_id' => 2,
                 'middle_category_id' => 53,
-                'name' => 'キミサワ無添加2×15袋',
+                'name' => '真ホッケ　30枚　茶',
+                'index' => 2,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
-                'big_category_id' => 3,
-                'middle_category_id' => 53,
-                'name' => '新サバ醤油　50枚',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 3,
+                'big_category_id' => 2,
                 'middle_category_id' => 54,
-                'name' => 'マミーマート　金目1枚×15P',
+                'name' => '千葉さば　40枚　黄緑',
+                'index' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
-                'big_category_id' => 3,
-                'middle_category_id' => 54,
-                'name' => '黄・緑',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 3,
-                'middle_category_id' => 54,
-                'name' => '食品館ﾎｯｹF2枚×15P緑',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 3,
+                'big_category_id' => 2,
                 'middle_category_id' => 55,
-                'name' => '金目１枚×８Ｐ',
+                'name' => '真ﾎｯｹ　1枚×15袋',
+                'index' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
-            [
-                'big_category_id' => 3,
-                'middle_category_id' => 55,
-                'name' => '醤油サバ2枚×12P',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 3,
-                'middle_category_id' => 55,
-                'name' => '赤魚1枚×12P　　　',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
+
             [
                 'big_category_id' => 3,
                 'middle_category_id' => 56,
-                'name' => '韓国ｱｼﾞ２枚×15Ｐｵﾚﾝｼﾞ',
+                'name' => 'オランダ６０枚　水色　',
+                'index' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
-[
+            [
                 'big_category_id' => 3,
-                'middle_category_id' => 56,
+                'middle_category_id' => 57,
                 'name' => '小アジ3枚×６P 青',
+                'index' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 3,
-                'middle_category_id' => 56,
-                'name' => 'さばF2枚×15Ｐ水色',
+                'middle_category_id' => 57,
+                'name' => 'さばF2枚×15Ｐ　水色',
+                'index' => 1,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 3,
-                'middle_category_id' => 56,
+                'middle_category_id' => 57,
+                'name' => '韓国ｱｼﾞ２枚×15Ｐ　オレンジ',
+                'index' => 2,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 3,
+                'middle_category_id' => 57,
                 'name' => '赤魚F　2枚×15P　黒赤',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 3,
-                'middle_category_id' => 57,
-                'name' => '新韓国あじ2枚×20Pピンク',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 3,
-                'middle_category_id' => 57,
-                'name' => '真ホッケ1枚×21P白',
+                'index' => 3,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 3,
                 'middle_category_id' => 58,
-                'name' => '真ﾎｯｹ　２枚×15P　水色',
+                'name' => '縞ホッケ2枚×15　緑黄 ',
+                'index' => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 3,
+                'middle_category_id' => 58,
+                'name' => '韓国あじ3枚×15P　黒',
+                'index' => 2,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 3,
+                'middle_category_id' => 58,
+                'name' => '赤魚1枚×15P　ﾋﾟﾝｸ',
+                'index' => 3,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 3,
+                'middle_category_id' => 58,
+                'name' => '金目1枚×15P　こげ茶',
+                'index' => 4,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 3,
                 'middle_category_id' => 59,
-                'name' => '真ホッケ2枚×15P緑',
+                'name' => '丸あじ2枚×15P　黄',
+                'index' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 3,
                 'middle_category_id' => 60,
-                'name' => 'あじ3枚×15P　緑黒',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 3,
-                'middle_category_id' => 60,
-                'name' => '金目1枚×15P　黄',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 3,
-                'middle_category_id' => 60,
-                'name' => '赤魚2枚×15P　赤',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 3,
-                'middle_category_id' => 60,
-                'name' => 'ノルサバ2枚×15P　黄緑',
+                'name' => 'スーパー　50枚　黒',
+                'index' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 3,
                 'middle_category_id' => 61,
-                'name' => 'あじ3×15P　茶',
+                'name' => 'あじ2枚×15P　緑黄',
+                'index' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 3,
                 'middle_category_id' => 61,
-                'name' => 'キンメ　小　2×15P　',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 3,
-                'middle_category_id' => 61,
-                'name' => '千葉サバ2×15P　ヤマカ',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'big_category_id' => 3,
-                'middle_category_id' => 61,
-                'name' => '真ホッケ2×15Pピンク',
+                'name' => '真ホッケ2枚×15P　紫',
+                'index' => 1,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 3,
                 'middle_category_id' => 62,
-                'name' => 'あじ2枚×15Pピンク',
+                'name' => 'あじ2枚×15P　オレンジ',
+                'index' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 3,
                 'middle_category_id' => 62,
-                'name' => 'ほっけ1枚×15P赤',
+                'name' => '真ホッケ3枚×15P　紙緑',
+                'index' => 1,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 3,
                 'middle_category_id' => 62,
-                'name' => 'さば2枚×15Pオレンジ',
+                'name' => 'さば2枚×15P　オレンジ',
+                'index' => 2,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 3,
                 'middle_category_id' => 63,
-                'name' => 'あじ3枚×20袋ヤマカ',
+                'name' => 'あじ2枚×15P　水色',
+                'index' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 3,
                 'middle_category_id' => 63,
-                'name' => 'さば2枚×20袋ヤマカ',
+                'name' => 'ホッケ2枚×15P　赤',
+                'index' => 1,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 3,
                 'middle_category_id' => 63,
-                'name' => 'さば醤油　　2枚×20袋',
+                'name' => 'さば2枚×15P　青',
+                'index' => 2,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'big_category_id' => 3,
-                'middle_category_id' => 63,
-                'name' => 'ヤマカ醤油',
+                'middle_category_id' => 64,
+                'name' => 'あじ2枚×15P　茶',
+                'index' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
-
+            [
+                'big_category_id' => 3,
+                'middle_category_id' => 64,
+                'name' => '真ﾎｯｹ2枚×15P　茶',
+                'index' => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 3,
+                'middle_category_id' => 65,
+                'name' => '長崎上アジ2枚×20Ｐ　白',
+                'index' => 0,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 3,
+                'middle_category_id' => 66,
+                'name' => '新長崎あじ3枚×15P　黄緑',
+                'index' => 0,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 3,
+                'middle_category_id' => 66,
+                'name' => '長崎あじ2枚×20P紙　緑',
+                'index' => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 3,
+                'middle_category_id' => 67,
+                'name' => 'アジ60枚 スーパー　青',
+                'index' => 0,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 3,
+                'middle_category_id' => 67,
+                'name' => 'アジ60枚　ジャスコ　緑',
+                'index' => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 3,
+                'middle_category_id' => 68,
+                'name' => 'オランダ3枚×40袋　赤',
+                'index' => 0,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 3,
+                'middle_category_id' => 68,
+                'name' => 'オランダ3枚×40袋　緑',
+                'index' => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 3,
+                'middle_category_id' => 68,
+                'name' => 'オランダ4枚×30袋　白',
+                'index' => 2,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 3,
+                'middle_category_id' => 69,
+                'name' => '新オランダ4枚×15P　紙緑',
+                'index' => 0,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 3,
+                'middle_category_id' => 70,
+                'name' => 'イイダ　金目１枚×８Ｐ　紫',
+                'index' => 0,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 3,
+                'middle_category_id' => 71,
+                'name' => '韓国あじ2枚×20P　黒',
+                'index' => 0,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 3,
+                'middle_category_id' => 71,
+                'name' => 'あじ3枚×15P　赤',
+                'index' => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 3,
+                'middle_category_id' => 72,
+                'name' => '金目1枚P×15　黄緑',
+                'index' => 0,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 3,
+                'middle_category_id' => 73,
+                'name' => '真ﾎｯｹ　２枚×15P　水色',
+                'index' => 0,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+[
+                'big_category_id' => 3,
+                'middle_category_id' => 74,
+                'name' => 'オンダアジ20枚白',
+                'index' => 0,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 3,
+                'middle_category_id' => 75,
+                'name' => 'あじ2枚P×15P　白',
+                'index' => 0,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 3,
+                'middle_category_id' => 76,
+                'name' => '金目3枚P×15　黒',
+                'index' => 0,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 3,
+                'middle_category_id' => 76,
+                'name' => '長崎あじ2枚×15P　黄',
+                'index' => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 3,
+                'middle_category_id' => 77,
+                'name' => '中骨取りあじ2枚×15P　オレンジ',
+                'index' => 0,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 3,
+                'middle_category_id' => 78,
+                'name' => '真ほっけ３枚P×15　緑',
+                'index' => 0,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 3,
+                'middle_category_id' => 78,
+                'name' => '第一ホッケ2枚×15Pヤマカ黄',
+                'index' => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 3,
+                'middle_category_id' => 79,
+                'name' => '長崎大20　赤',
+                'index' => 0,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 3,
+                'middle_category_id' => 80,
+                'name' => '韓国あじ2枚20P　ピンク',
+                'index' => 0,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 3,
+                'middle_category_id' => 80,
+                'name' => '韓国あじ大2枚P×15　赤',
+                'index' => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 3,
+                'middle_category_id' => 80,
+                'name' => 'ホッケ　大1枚P×15　紫',
+                'index' => 2,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 3,
+                'middle_category_id' => 81,
+                'name' => 'あじ　キミサワ無添加30枚オレンジ',
+                'index' => 0,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 3,
+                'middle_category_id' => 81,
+                'name' => 'あじ　農塩　20枚　黄',
+                'index' => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 3,
+                'middle_category_id' => 81,
+                'name' => '新サバ醤油　50枚　黄',
+                'index' => 2,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 3,
+                'middle_category_id' => 82,
+                'name' => '真ホッケ2枚×15P　ピンク',
+                'index' => 0,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 3,
+                'middle_category_id' => 82,
+                'name' => 'キンメ2枚×15P　緑',
+                'index' => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 3,
+                'middle_category_id' => 82,
+                'name' => 'あじ3枚×15P　茶',
+                'index' => 2,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 3,
+                'middle_category_id' => 82,
+                'name' => '千葉サバ2枚×15P　ヤマカ',
+                'index' => 3,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 3,
+                'middle_category_id' => 83,
+                'name' => 'あじ2枚×15P　ピンク',
+                'index' => 0,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 3,
+                'middle_category_id' => 83,
+                'name' => 'ほっけ1枚×15P　赤',
+                'index' => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 3,
+                'middle_category_id' => 83,
+                'name' => 'さば2枚×15P　青',
+                'index' => 2,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 3,
+                'middle_category_id' => 84,
+                'name' => 'あじ3枚×15P　ヤマカ黄',
+                'index' => 0,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'big_category_id' => 3,
+                'middle_category_id' => 84,
+                'name' => '縞ホッケ開き2枚×15P　黒',
+                'index' => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
         ];
 
         DB::table('items')->insert($items2);
