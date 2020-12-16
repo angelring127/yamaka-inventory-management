@@ -3,10 +3,9 @@
  */
 import axios from 'axios';
 
-const baseURL = 'https://yamaka-inventory.com/api/'; //本番環境
-// const baseURL = 'http://192.168.11.65:3000/api/'; //本番環境
+// const baseURL = 'https://yamaka-inventory.com/api/'; //本番環境
 
-// const baseURL = 'http://localhost:8000/api'; //テスト環境
+const baseURL = process.env.NODE_ENV === 'production' ?  'https://yamaka-inventory.com/api/' : 'http://localhost:8000/api'; //テスト環境
 const stock = 'stock';
 const navi = 'navi'; //navigationBar情報
 const record = 'record'; //保存した記録

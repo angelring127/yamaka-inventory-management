@@ -18,7 +18,7 @@ const CHANGE_IS_EDIT = 'stockTable/CHANGE_IS_EDIT';
 
 
 
-export const fetchSuccess = (stockItems) => ({ type: FETCH_STOCK_TABLE_SUCESS, payload: {stockItems}});
+export const fetchSuccess = (res) => ({ type: FETCH_STOCK_TABLE_SUCESS, payload: {res}});
 export const onPending = () => ({ type: FETCH_STOCK_TABLE_PENDING});
 export const onPendingForShippment = () => ({ type: FETCH_SHIPPMENT_PENDING});
 export const fetchError = (error) => ({ type: FETCH_ERROR_MESSAGE, payload: {error}});
@@ -43,7 +43,7 @@ const initialState = {
   selectedItem: null,
   selectedShipmentList: null,
   isEdit: false,
-
+  selectedBigcategory: null,
 };
 
 const stockTable = (state = initialState, action ) => {
@@ -52,7 +52,8 @@ const stockTable = (state = initialState, action ) => {
       return {
         ...state,
         isPending: false,
-        stockItems: action.payload.stockItems
+        stockItems: action.payload.res.items,
+        selectedBigcategory: action.payload.res.bigcategory,
       };
     case FETCH_STOCK_TABLE_PENDING:
       return {

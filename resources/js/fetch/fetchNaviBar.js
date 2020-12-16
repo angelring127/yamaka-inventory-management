@@ -24,6 +24,7 @@ export const fetchNaviBar = () => {
       setNaviBar(res, dispatch);
     })
     .catch(error => {
+      console.log(error.response);
       dispatch(storeNaviBar.fetchError(error));
     });
   }

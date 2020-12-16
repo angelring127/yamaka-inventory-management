@@ -19,58 +19,66 @@ import IsPending from './IsPending';
  */
 const setTable = (stockTable, handlerInsertStock, handleShow, constText) => {
   const tableitems = stockTable.stockItems.map(middleCategory => {
-    const items = middleCategory.items.map(item => {
-      let oldStockDate = null;
-      let stockCount = 0;
-      let className = '';
+    const items = [];
+    let item_index = 0;
+    for (let index = 0; index < middleCategory.lows; index++) {
+      if ( item_index in middleCategory.items  && middleCategory.items[item_index].index === index) {
+        const item = middleCategory.items[item_index];
+        let oldStockDate = null;
+        let stockCount = 0;
+        let className = '';
 
-      // 在庫の計算
-      item.stocks.map(stock => {
-        if (stock.stock_status === 1) {
-          stockCount -= stock.stock_count;
-        } else {
-          stockCount += stock.currentstock_count;
-          const createdAt = new Date(stock.created_at);
-          if ( oldStockDate === null || oldStockDate > createdAt) {
-            oldStockDate = createdAt;
+        item.stocks.map(stock => {
+          if (stock.stock_status === 1) {
+            stockCount -= stock.stock_count;
+          } else {
+            stockCount += stock.currentstock_count;
+            const createdAt = new Date(stock.created_at);
+            if ( oldStockDate === null || oldStockDate > createdAt) {
+              oldStockDate = createdAt;
+            }
+          }
+          return stock;
+        });
+
+        if (oldStockDate !== null) {
+          const currentDate = new Date();
+          // 一番古い在庫の日付で背景色の変更
+          const intervalTime = parseInt((currentDate - oldStockDate) / (1000 * 3600 * 24));
+          // 20日：黄色
+          // 30日：赤色
+          // 60日：紫色
+          switch (intervalTime) {
+            case 2:
+              className = 'stock-yellow';
+              break;
+            case 3:
+            case 4:
+            case 5:
+              className = 'stock-red';
+              break;
+            case 6:
+            case 7:
+            case 8:
+            case 9:
+            case 10:
+              className = 'stock-purple';
+              break;
           }
         }
-        return stock;
-      });
-
-      if (oldStockDate !== null) {
-        const currentDate = new Date();
-        // 一番古い在庫の日付で背景色の変更
-        const intervalTime = parseInt((currentDate - oldStockDate) / (1000 * 3600 * 24));
-        // 20日：黄色
-        // 30日：赤色
-        // 60日：紫色
-        switch (intervalTime) {
-          case 2:
-            className = 'stock-yellow';
-            break;
-          case 3:
-          case 4:
-          case 5:
-            className = 'stock-red';
-            break;
-          case 6:
-          case 7:
-          case 8:
-          case 9:
-          case 10:
-            className = 'stock-purple';
-            break;
-        }
+        const result = (<tr key={item.id} id={item.id} big_category_id={item.big_category_id} middle_category_id={item.middle_category_id}>
+          <td className={className} style={{fontSize:"0.8em"}}>{item.name}</td>
+          <td contentEditable="true" item_id={item.id} big_category_id={item.big_category_id} middle_category_id={item.middle_category_id} suppressContentEditableWarning={true} name="export" onInput={handlerInsertStock} ></td>
+          <td contentEditable="true" item_id={item.id} big_category_id={item.big_category_id} middle_category_id={item.middle_category_id} suppressContentEditableWarning={true} name="import" onInput={handlerInsertStock} ></td>
+          <td onClick={e => handleShow(item)} item={item.stocks} >{stockCount}</td>
+        </tr>);
+        items.push(result);
+        item_index++;
+      } else {
+        const result = (<tr><td colSpan='4' height="49px"></td></tr>);
+        items.push(result);
       }
-
-      return <tr key={item.id} id={item.id} big_category_id={item.big_category_id} middle_category_id={item.middle_category_id}>
-        <td className={className}>{item.name}</td>
-        <td contentEditable="true" item_id={item.id} big_category_id={item.big_category_id} middle_category_id={item.middle_category_id} suppressContentEditableWarning={true} name="export" onInput={handlerInsertStock} ></td>
-        <td contentEditable="true" item_id={item.id} big_category_id={item.big_category_id} middle_category_id={item.middle_category_id} suppressContentEditableWarning={true} name="import" onInput={handlerInsertStock} ></td>
-        <td onClick={e => handleShow(item)} item={item.stocks} >{stockCount}</td>
-      </tr>;
-    });
+    }
     return (<tbody key={middleCategory.id}>
       <tr><td colSpan='4' className="stock-table-head" ><b>{middleCategory.name}</b></td></tr>
       {(items.length !== 0 ? items : <tr><td colSpan="4">{constText.emptyErrorMsg}</td></tr>)}
@@ -89,7 +97,7 @@ const setTable = (stockTable, handlerInsertStock, handleShow, constText) => {
               <th>{constText.inventory}</th>
             </tr>
           </thead>
-          {tableitems.slice(0, 5)}
+          {tableitems.slice(0, stockTable.selectedBigcategory.first_sort)}
         </Table>
       </Col>
       <Col xs={4} key={`2`}>
@@ -102,7 +110,7 @@ const setTable = (stockTable, handlerInsertStock, handleShow, constText) => {
               <th>{constText.inventory}</th>
             </tr>
           </thead>
-          {tableitems.slice(5, 13)}
+          {tableitems.slice(stockTable.selectedBigcategory.first_sort, stockTable.selectedBigcategory.second_sort)}
         </Table>
       </Col>
       <Col xs={4} key={`3`}>
@@ -115,7 +123,7 @@ const setTable = (stockTable, handlerInsertStock, handleShow, constText) => {
               <th>{constText.inventory}</th>
             </tr>
           </thead>
-          {tableitems.slice(13)}
+          {tableitems.slice(stockTable.selectedBigcategory.second_sort)}
         </Table>
       </Col>
     </Row>
